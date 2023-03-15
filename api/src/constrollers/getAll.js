@@ -25,7 +25,7 @@ const { Pokemon, Type } = require ('../db')
       let url = "https://pokeapi.co/api/v2/pokemon"
       while (promises.length < 40) {
           const { data } = await axios.get(url);
-          promises.push(...data.results);
+          promises.push(...data.results); // el ... mete el objeto dentro del array para que no sea un array de array
           url = data.next;
       };
 
@@ -35,6 +35,7 @@ const { Pokemon, Type } = require ('../db')
               return res.data;
           })
       );
+     
 
       const infoPokemons= resolvedPromises.map((pokemon) => {
             return {
@@ -75,6 +76,7 @@ const { Pokemon, Type } = require ('../db')
                   model: Type,
                   attributes: ["name"],
                   through: { attributes: [] }
+                  // through: { types: [] }
               }]
           });
 
@@ -106,8 +108,8 @@ const { Pokemon, Type } = require ('../db')
           
             let apiPokemons = await apiInfo();
             let dbPokemons = await dbInfo(); 
-            let concat = apiPokemons.concat(dbPokemons);
-            if (!concat) throw Error ("no pokemon found ")
+            let concat = dbPokemons.concat(apiPokemons);
+            if (!concat.length) throw Error ("no pokemon found")
             return concat;
           
         };

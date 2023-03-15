@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue:"https://www.pokemon.com/static-assets/app/static3/img/og-default-image.jpeg"
+      defaultValue:"https://images3.alphacoders.com/677/677583.png"
     },
     life: {
       type: DataTypes.INTEGER,

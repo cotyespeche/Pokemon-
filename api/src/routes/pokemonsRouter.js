@@ -61,19 +61,25 @@ router.get('/:id', async(req, res) =>{
 })
 
 
+////////////////////////////////////////////// P O S T ////////////////////////////////////////////////////
+
      
 router.post('/create', async(req, res) =>{
 
-    try {
-      const pokemonPost = await postPokemon(req.body);
-      if (!pokemonPost) throw Error ('Pokemon not found');
-      res.status(200).json(pokemonPost);
+  try {
+    const pokemonPost = await postPokemon(req.body);
+    if (!pokemonPost) throw Error ('Pokemon not found');
+    res.status(200).json(pokemonPost);
 
-    } catch (error) {
-        res.status(404).send({error: error.message})
-    }
+  } catch (error) {
+      res.status(404).send({error: error.message})
+  }
 })
-             
+        // const  { name, image, life, attack, defense, speed, height, weight, types } = req.body
+      // const newPokemon= await postPokemon(name, image, life, attack, defense, speed, height, weight, types)  
+
+
+
 router.delete('/:id', async(req, res) =>{
   const { id } = req.params
   try {
