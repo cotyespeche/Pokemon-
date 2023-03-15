@@ -1,46 +1,89 @@
 const { Router } = require('express');
-const pokemonsRouter = Router();
+const router = Router();
+const {apiInfo, dbInfo, apiDb} = require ('../constrollers/getAll')
+const { postPokemon } = require ("../constrollers/post")
+const { byName } = require ('../constrollers/getByName')
+const { byId } = require ('../constrollers/getById')
+const { Pokemon, Type } = require ('../db')
 
 
-pokemonsRouter.get('/getAll', async(req, res) =>{
+// router.get('/', async(req, res) =>{
+//     try {
+//       const { name } = req.query;
+//       let getAllPokemons;
+
+//       if(name) getAllPokemons= await byName(name)
+//       else getAllPokemons= await apiDb();
+
+//       // if(getAllPokemons.error) throw Error(getAllPokemons.error)
+//       return res.status(200).json(getAllPokemons);
+
+//     } catch (error) {
+//       res.status(404).send({error: error.message})
+//     }
+        
+//     })
+
+router.get('/getAll', async(req, res) =>{
+  try {
+    const getAllPokemons = await apiDb()
+    res.status(200).json(getAllPokemons)
+  } catch (error) {
+    res.status(404).send({error: error.message})
+  }
+
+})
+
+router.get('/', async(req, res) =>{
     try {
-        res.send('estoy en getAll');
-     console.log("estoy en pokemons")
+      const { name } = req.query;
+     
+        const pokemonByName= await byName(name)
+        res.status(200).json(pokemonByName)
+     
+    } catch (error) {
+      res.status(404).send({error: error.message})
+    } 
+    })
+
+
+
+
+router.get('/:id', async(req, res) =>{
+    const { id } = req.params;
+    try {
+      const pokemonId = await byId(id)
+      res.status(200).json(pokemonId)
     } catch (error) {
       res.status(404).send({error: error.message})
     }
-        
-    })
-
-pokemonsRouter.get('/:id', async(req, res) =>{
-    const { id } = req.params;
-
-        try {
-            res.send('estoy en id')
-            console.log("estoy en id")
-        } catch (error) {
-          res.status(404).send({error: error.message})
-        }
             
-        })
-
-pokemonsRouter.get('/', async(req, res) =>{
-    // const { name } = req.query;
-    res.send ('estoy en name')
-    console.log('hola, estoy en name');
 })
-     
 
-pokemonsRouter.post('/create', async(req, res) =>{
+
+     
+router.post('/create', async(req, res) =>{
+
     try {
-        res.send('estoy en post');
-        console.log("estoy en post")
+      const pokemonPost = await postPokemon(req.body);
+      if (!pokemonPost) throw Error ('Pokemon not found');
+      res.status(200).json(pokemonPost);
+
     } catch (error) {
         res.status(404).send({error: error.message})
     }
 })
              
+router.delete('/:id', async(req, res) =>{
+  const { id } = req.params
+  try {
+    const deletePoke= await Pokemon.findByPk(id)
+    deletePoke.destroy()
+    res.status(200).json(deletePoke)
+  } catch (error) {
+    res.status(404).send({error: error.message})
+  }
+});
 
-
-module.exports= pokemonsRouter;
+module.exports= router;
               
