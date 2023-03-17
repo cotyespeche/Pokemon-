@@ -10,7 +10,7 @@ const byName = async(name) => {
     let pokemonByName = data.filter((pokemon) => 
     pokemon.name.toLowerCase().includes(name.toLowerCase()))
 
-    if (!pokemonByName.length) throw Error ('Pokemon no faund')
+    if (!pokemonByName.length) throw Error ('Pokemon not faund')
 
     return pokemonByName
 }

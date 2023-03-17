@@ -5,12 +5,6 @@ const axios =require('axios')
 const getAllTypes = async () => {
     try {
 
-        // const allTypes= await Type.findAll();
-        // if (!allTypes.length) {
-        //     // throw Error ("No Types in Database")
-        // return null;
-        // }
-
         const apiTypes = await axios.get('https://pokeapi.co/api/v2/type');
         await Promise.all(
             apiTypes.data.results.map(type => {
@@ -18,11 +12,11 @@ const getAllTypes = async () => {
                     id: type.id,
                     name: type.name
                 };
-                let { name } = typeToFindOrCreate
+                let { name } = typeToFindOrCreate  // consultar el { name }
                 Type.findOrCreate({ where: { name } })
             })
         );
-
+        
     } catch (error) {
         return error.message
         // return error.message

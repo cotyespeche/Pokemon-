@@ -13,18 +13,35 @@ const { axios } =require('axios');
      
 
         const postPokemon = async (pokemon) => {
-  
+
           const { name, image, life, attack, defense, speed, height, weight, types } = pokemon;
            if (!name || !image|| !life || !attack || !defense || !types) throw new Error("Missing information");
-  
+
+           let findedPoke = await Pokemon.findOne({ where: { name: name } });
+            if (findedPoke) {
+            throw new Error('The name is used');
+            } // lo puse arriba del try sino no me tome el catch
+
+          try {
+          
           const pokemonToPost = { name, image, life, attack, defense, speed, height, weight };
           let newPokemon = await Pokemon.create(pokemonToPost);
           newPokemon.addTypes(types)
+          
+          return 'Successfully created pokemon';
+
+          } catch (error) {
+             return 'Error creating pokemon';
+          }
+
+		}
+  
+          
+
           // res.send ('pokemon created successfully')
+       
           
-          return pokemonToPost
-          
-        };
+    
 	
 
 	
