@@ -11,7 +11,7 @@ const byId = async(id) => {
         if (!pokemonById.length) throw Error ("No Pokemons with that id")
     
         return pokemonById
-        
+
     }
 
 

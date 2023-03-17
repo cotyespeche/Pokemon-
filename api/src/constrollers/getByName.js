@@ -8,7 +8,7 @@ const byName = async(name) => {
     if (!data) throw Error ('data no faund')
     
     let pokemonByName = data.filter((pokemon) => 
-    pokemon.name.toLowerCase().includes(name.toLowerCase()))
+    pokemon.name.toLowerCase()=== name.toLowerCase())
 
     if (!pokemonByName.length) throw Error ('Pokemon not faund')
 
@@ -18,9 +18,3 @@ const byName = async(name) => {
 module.exports = { byName };
 
 
- // else{
-      //   const byName = await Pokemon.findAll({
-      //     where : {
-      //       name: { [Op.iLike]: `%${name}%` },
-      //     }
-      //   });
