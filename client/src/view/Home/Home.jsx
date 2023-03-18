@@ -1,0 +1,58 @@
+import React from 'react'
+// import style from './Home.modules.css'
+import AllCardsPokemons from '../../components/AllCardsPokemons/AllCardsPokemons'
+import { getAllPokemons } from '../../redux/action';
+import { useEffect, useState } from 'react';
+import Paginado from '../../components/Paginado/Paginado';
+
+import { useDispatch, useSelector } from 'react-redux'
+import style from './Home.modules.css'
+// import img from '../../img/home.png'
+
+
+
+const Home = () => {
+
+const dispatch= useDispatch()
+const pokemones = useSelector((state) => state.pokemons);
+
+  useEffect (()=>{  
+    dispatch(getAllPokemons())
+    },[dispatch])
+   
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const paisesPorPagina = 12;
+  
+    const indexUltimoPais = currentPage * paisesPorPagina;
+    const indexPrimerPais = indexUltimoPais - paisesPorPagina;
+    const currentPaises = pokemones.slice(indexPrimerPais, indexUltimoPais);
+  
+    function paginar(numeroDePagina) {
+      setCurrentPage(numeroDePagina);
+    }
+
+      return (
+  
+        // <div>
+         
+           <div className= {style.home}>
+        
+            {/* <img src={img} alt={img}></img> */}
+               {/* <video autoPlay muted loop className={style.videoHome}>
+             <source src={beach} type="video/mp4"></source>
+            </video> */} 
+            <AllCardsPokemons />
+            <Paginado
+             currentPage={currentPage}
+            paisesPorPagina={paisesPorPagina}
+            totalPaises={pokemones.length}
+            paginar={paginar}
+           />
+          </div>
+          // </div>
+      )
+  }
+  
+  
+  export default Home;

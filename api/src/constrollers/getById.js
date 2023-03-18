@@ -1,4 +1,4 @@
-const { apiDb, apiInfo } = require ('./getAll')
+const { apiDb } = require ('./getAll')
 const { Pokemon, type } = require ('../db')
 
 const byId = async(id) => {

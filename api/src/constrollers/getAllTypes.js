@@ -9,7 +9,7 @@ const getAllTypes = async () => {
         await Promise.all(
             apiTypes.data.results.map(type => {
                 let typeToFindOrCreate = {
-                    id: type.id,
+                    // id: type.id,
                     name: type.name
                 };
                 let { name } = typeToFindOrCreate  // consultar el { name }
