@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import style from './LandingPage.module.css'
 import PokeLanding from '../../img/PokeLanding.mp4'
 
+
 const LandingPage = () => {
     return (
         <div className={style.bodyLanding}>
