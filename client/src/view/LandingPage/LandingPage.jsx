@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import style from './LandingPage.modules.css'
+import style from './LandingPage.module.css'
+import PokeLanding from '../../img/PokeLanding.mp4'
 
 const LandingPage = () => {
     return (
@@ -8,7 +9,7 @@ const LandingPage = () => {
          
          
         <div className={style.landinText1}>
-          <h1 className={style.landingGo}>
+          <h1 className={style.landingWelcome}>
           WELCOME TO POKEMON'S WORLD</h1>
 
          <div className={style.landingButton}>
@@ -19,14 +20,14 @@ const LandingPage = () => {
             
             </div>
 
-          {/* <video autoPlay muted loop className={style.video}>
-           <source src={beach} type="video/mp4"></source>
-          </video> */}
+          <video autoPlay muted loop className={style.video}>
+           <source src={PokeLanding} type="video/mp4"></source>
+          </video>
 
         
           
           </div>
-          </div>
+           </div>
     )
 }
 

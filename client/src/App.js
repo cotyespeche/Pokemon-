@@ -1,19 +1,20 @@
 import './App.css';
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar'
 import Home from './view/Home/Home'
 import LandingPage from './view/LandingPage/LandingPage'
 import Detail from './view/Detail/Detail'
 
 
 function App() {
-  // location=useLocation();
+  const location=useLocation();
 
 
   return (
     <div className="App">
-      <h1>Henry Pokemon</h1>
-      {/* {location.pathname !== "/" && <NavBar/>} */}
+      {/* <h1>Henry Pokemon</h1> */}
+      {location.pathname !== "/" && <NavBar/>}
    
    <Switch>
   <Route exact path="/" component={LandingPage} />

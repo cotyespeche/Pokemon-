@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 // import { getAllPokemons } from '../../redux/action';
 import CardPokemon from '../CardPokemon/CardPokemon';
-import style from './AllCardsPokemons.modules.css'
+import style from './AllCardsPokemons.module.css'
 
 
 const AllCardsPokemons = () => {
@@ -20,9 +20,7 @@ const AllCardsPokemons = () => {
             key= {element?.id}
             name= {element?.name}
             image= {element?.image}
-            types= {element?.types}
-
-            >
+            types= {element?.types}>
             </CardPokemon>
             )
             : <h1>Loading...</h1>}

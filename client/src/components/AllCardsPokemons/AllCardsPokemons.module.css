@@ -1,0 +1,14 @@
+.AllCards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    justify-content: center;
+    padding-top: 80px;
+    /* background-color: rgba(255, 243, 243, 0.185); */
+    /* border-radius: 20px; */
+    /* margin-top: 0%; */
+    /* margin-left: -2%; */
+    /* margin-right: 2%; */
+    /* position: relative; */
+   
+}
+

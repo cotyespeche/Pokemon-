@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 import Paginado from '../../components/Paginado/Paginado';
 
 import { useDispatch, useSelector } from 'react-redux'
-import style from './Home.modules.css'
+import style from './Home.module.css'
+// import home from '../../img/'
 // import img from '../../img/home.png'
 
 
@@ -21,16 +22,7 @@ const pokemones = useSelector((state) => state.pokemons);
     },[dispatch])
    
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const paisesPorPagina = 12;
-  
-    const indexUltimoPais = currentPage * paisesPorPagina;
-    const indexPrimerPais = indexUltimoPais - paisesPorPagina;
-    const currentPaises = pokemones.slice(indexPrimerPais, indexUltimoPais);
-  
-    function paginar(numeroDePagina) {
-      setCurrentPage(numeroDePagina);
-    }
+ 
 
       return (
   
@@ -43,12 +35,7 @@ const pokemones = useSelector((state) => state.pokemons);
              <source src={beach} type="video/mp4"></source>
             </video> */} 
             <AllCardsPokemons />
-            <Paginado
-             currentPage={currentPage}
-            paisesPorPagina={paisesPorPagina}
-            totalPaises={pokemones.length}
-            paginar={paginar}
-           />
+          
           </div>
           // </div>
       )

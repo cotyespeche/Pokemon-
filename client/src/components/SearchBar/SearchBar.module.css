@@ -1,0 +1,23 @@
+.input {
+    background: #f0f0f3;
+    width: 200px;
+    font-size: 15px;
+    font-family: monospace;
+    margin-left: 90px;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    transition: all ease-in-out 0.2s;
+
+  }
+
+.input:hover{
+  background: rgba(238, 238, 238, 0.611);
+
+}
+
+.container{
+    margin-left: 700px;
+  
+}
