@@ -1,7 +1,10 @@
 import { GET_ALL_POKEMONS,
      GET_POKEMON_DETAIL,
      CLEAN_POKEMON_DETAIL,
-     GET_POKEMON_BY_NAME
+     GET_POKEMON_BY_NAME,
+     DELETE_STATE,
+     ORDER_BY_NAME,
+     ORDER_BY_ATTACK
      } from "./actionType";
 import axios from 'axios'
 
@@ -49,15 +52,33 @@ export const getAllPokemons = ()=>{
   export const getPokemonByName = (name) => {
     return async function(dispatch) {
         try {
-            const response = axios.get(`http://localhost:3001/pokemons/${name}`)
-            const pedido= response.data
+            const response = await axios.get(`http://localhost:3001/pokemons?name=${name}`)
+            // const pedido= response.data
             dispatch({
                 type: GET_POKEMON_BY_NAME ,
-                payload: pedido
+                payload: response.data
             })
 
         } catch (error) {
             window.alert("Pokemon not found!")
         }
+    }
+  }
+
+  export const deleteState=() => {
+    return { type: DELETE_STATE }
+  }
+  
+  export const orderByName = (payload) => {
+    return {
+        type: ORDER_BY_NAME,
+        payload
+    }
+  }
+  
+  export const orderByAttack = (payload) => {
+    return {
+        type: ORDER_BY_ATTACK,
+        payload
     }
   }

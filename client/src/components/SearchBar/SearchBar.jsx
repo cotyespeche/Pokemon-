@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPokemonByName, getAllPokemons} from '../../redux/action';
+import { getPokemonByName, getAllPokemons, deleteState} from '../../redux/action';
 import style from './SearchBar.module.css'
 import { Link } from 'react-router-dom'
 
@@ -32,10 +32,10 @@ function handleSubmit(e){
    
     
 }
-// const deleteSearch = () => {
-//     dispatch(deleteState())
-//     dispatch(getAllPokemons())
-// }
+const deleteSearch = () => {
+    dispatch(deleteState())
+    dispatch(getAllPokemons())
+}
 
 return(
   
@@ -44,6 +44,7 @@ return(
             className={style.input}
             type="text"
             placeholder="Search..."
+            value= {name}
             onChange= {(e)=> handleInputChange(e)}
             // onKeyDown={handleKeyDown}
           />
@@ -55,9 +56,9 @@ return(
             🔍︎
           </button>
 
-          {/* <Link to="/home">
+          <Link to="/home">
                 <button onClick={deleteSearch} className={style.btn} >Delete Search</button>
-            </Link> */}
+            </Link>
         </div>
       );
     };
