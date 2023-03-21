@@ -3,10 +3,11 @@ import React from 'react'
 import AllCardsPokemons from '../../components/AllCardsPokemons/AllCardsPokemons'
 import { getAllPokemons, orderByName } from '../../redux/action';
 import Filter from '../../components/Filter/Filter';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux'
 import style from './Home.module.css'
+// import Pagination from '../../components/Pagination/Pagination';
 // import home from '../../img/'
 // import img from '../../img/home.png'
 
@@ -15,16 +16,13 @@ import style from './Home.module.css'
 const Home = () => {
 
 const dispatch= useDispatch()
-const pokemones = useSelector((state) => state.pokemons);
+
 
   useEffect (()=>{  
     dispatch(getAllPokemons())
     },[dispatch])
    
 
-    // const handleChange = (e) => {
-    //   e.target.name === "orderByName" && dispatch(orderByName(e.target.value))
-    // }
 
       return (
   
@@ -32,6 +30,7 @@ const pokemones = useSelector((state) => state.pokemons);
          
            <div className= {style.home}>
             <Filter/>
+          
            
         
             {/* <img src={img} alt={img}></img> */}

@@ -24,7 +24,7 @@ const { Pokemon, Type } = require ('../db')
       const poke = []; 
       // me guarda un array de objeroscon estos datos  { name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }, de cada iteracion me tre su name y su url
       let pokeApi = "https://pokeapi.co/api/v2/pokemon"
-      while (poke.length < 60) {
+      while (poke.length < 106) {
           const { data } = await axios.get(pokeApi);
           poke.push(...data.results); // el ... mete el objeto dentro del array para que no sea un array de array
           pokeApi = data.next; // ingresa al next que estan las otras 20 y asi 

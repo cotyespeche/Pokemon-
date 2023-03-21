@@ -24,9 +24,9 @@ const { axios } =require('axios');
 
           try {
           
-          const pokemonToPost = { name, image, life, attack, defense, speed, height, weight };
-          let newPokemon = await Pokemon.create(pokemonToPost);
-          newPokemon.addTypes(types)
+          const pokemonToPost = { name, image, life, attack, defense, speed, height, weight }; // creo un objeto con estas propiedades que va a ser usado para crear la instancia
+          let newPokemon = await Pokemon.create(pokemonToPost); // Creo la instancia de Pokemon 
+          newPokemon.addTypes(types) // relacion entre la instancia y los types
           
           return 'Successfully created pokemon';
 

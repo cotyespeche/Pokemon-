@@ -1,7 +1,10 @@
-import { orderByName, orderByAttack } from '../../redux/action';
+import { orderByName, orderByAttack, filterBySource, filterByType, getAllTypes } from '../../redux/action';
 import { useDispatch } from 'react-redux'
 import style from './Filter.module.css'
-import { useState } from 'react';
+import { useState, useSelector } from 'react';
+// import { useHistory } from 'react-router-dom';
+// import { useEffect } from 'react';
+
 
 
 
@@ -10,18 +13,28 @@ import { useState } from 'react';
 function Filter () {
 
     const dispatch= useDispatch()
-    const [order, setOrder] = useState('')
+    // const history= useHistory()
+    // const allTypes= useSelector ((state) => state.types)
+    // // const [order, setOrder] = useState('')
+    // useEffect(() => {
+    //     if(!allTypes || allTypes.length === 0)
+    //     dispatch(getAllTypes())
+    // }, []);
+
 
     const handleChange = (e) => {
-        e.target.name === "orderByName" && dispatch(orderByName(e.target.value))
+        e.target.name === "orderByName" && dispatch(orderByName(e.target.value)) 
 
         e.target.name === "orderByAttack" && dispatch(orderByAttack(e.target.value))
+        // e.target.name === "filterBySource" && dispatch(filterBySource(e.target.value))
+        e.target.name === "filterByType" && dispatch(filterByType(e.target.value))
+
     }
     
-    // function handleChange(e) {
+    // function handleTypes(e) {
     //     e.preventDefault();
-    //     dispatch(orderByName(e.target.value));
-    //     setOrder(`Ordenado ${e.target.value}`)
+    //     dispatch(filterByType(e.target.value));
+    // //     history.push("/home")
     //   }
 
     return (
@@ -44,9 +57,31 @@ function Filter () {
                 </select>
 
 
+                {/* <select className={style.selectBySource} name="filterBySource" defaultValue={"default"} onChange={handleChange}>
+                    <option value="default" disabled>Filter by source</option>
+                    <option value="Reset">Reset filter</option>
+                    <option value="Api">Api</option>
+                    <option value="Db">Db</option>
+                   
+                </select> */}
+               
+
+
+                {/* <select name="filterByType" defaultValue="Default" onChange={(event) => handleTypes(event)} >
+                        <option key="Types" value="" hidden>Filter By Types</option>
+                        <option key="All" value="All">All</option>
+                        {
+                            allTypes?.map((type, i) => {
+                                return <option key={type.name + i} value={type.name}>{type.name}</option>
+                            })
+                            }
+                    </select>
+
+{/*  */}
                 <select className={style.types} name="filterByType" defaultValue={"default"} onChange={handleChange}>
                     <option value="default" disabled>FILTER BY TYPE</option>
-                    <option value="ground ">Ground</option>
+                    <option value="All">All</option>
+                    <option key="ground" value="ground ">Ground</option>
                     <option value="steel ">Steel</option>
                     <option value="dark ">Dark</option>
                     <option value="flying ">Flying</option>
@@ -67,7 +102,7 @@ function Filter () {
                     <option value="ghost ">Ghost</option>
                     <option value="electric ">Electric</option>
                 </select>
-
+  
 
 
             </div>
@@ -81,4 +116,6 @@ function Filter () {
 
 
 
+
+ 
 

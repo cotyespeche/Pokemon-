@@ -6,7 +6,8 @@ import { GET_ALL_POKEMONS,
      ORDER_BY_NAME,
      ORDER_BY_ATTACK,
      GET_ALL_TYPES,
-     FILTER_BY_TYPE
+     FILTER_BY_TYPE,
+     FILTER_BY_SOURCE
      } from "./actionType";
 import axios from 'axios'
 
@@ -100,3 +101,10 @@ export const getAllPokemons = ()=>{
 export const filterByType = (type) => {
   return { type: FILTER_BY_TYPE, payload: type }
 };
+
+export const filterBySource = (payload) => {
+return {
+  type: FILTER_BY_SOURCE,
+  payload: payload
+}
+}

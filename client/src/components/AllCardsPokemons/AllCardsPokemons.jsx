@@ -9,12 +9,42 @@ import style from './AllCardsPokemons.module.css'
 
 const AllCardsPokemons = () => {
     // const dispatch= useDispatch
-    const pokemons = useSelector(state => state.pokemons)
+    const pokemons = useSelector(state => state.copyPokemons)
 
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(12);
+    const pages = [];
+    for (let i = 1; i <= Math.ceil(pokemons.length / itemsPerPage); i++) {
+        pages.push(i);
+    };
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = pokemons.slice(indexOfFirstItem, indexOfLastItem);
+
+    const handleClick = (event) => {
+        setCurrentPage(Number(event.target.id))
+    };
+
+    const renderPageNumbers = pages.map(number => {
+        return (
+            <button className={style.listItem} key={number} id={number} onClick={handleClick}>
+                {number}
+            </button>
+        )
+    });
+//     <div className={style.ulContainer}>
+//     <ul className={style.unorganizedList}>{renderPageNumbers}</ul>
+// </div>
 
         return (
+            <div>
+            
             <div className={style.AllCards}>
-            {pokemons.length > 0 ? pokemons.map(element=> 
+                
+               
+            {/* {pokemons.length > 0 ? pokemons.map(element=>  */}
+            {pokemons.length > 0 ? currentItems.map(element=> 
             <CardPokemon
             id= {element?.id}
             key= {element?.id}
@@ -25,7 +55,8 @@ const AllCardsPokemons = () => {
             )
             : <h1>Loading...</h1>}
            </div>
-            
+           <ul className={style.unorganizedList}>{renderPageNumbers}</ul>
+            </div>
         )
 
 
