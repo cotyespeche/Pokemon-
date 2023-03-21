@@ -31,7 +31,7 @@ const pokemones = useSelector((state) => state.pokemons);
         // <div>
          
            <div className= {style.home}>
-            <Filter />
+            <Filter/>
            
         
             {/* <img src={img} alt={img}></img> */}

@@ -4,7 +4,9 @@ import { GET_ALL_POKEMONS,
      GET_POKEMON_BY_NAME,
      DELETE_STATE,
      ORDER_BY_NAME,
-     ORDER_BY_ATTACK
+     ORDER_BY_ATTACK,
+     GET_ALL_TYPES,
+     FILTER_BY_TYPE
      } from "./actionType";
 import axios from 'axios'
 
@@ -82,3 +84,19 @@ export const getAllPokemons = ()=>{
         payload
     }
   }
+
+  export const getAllTypes= () => {
+    return async function (dispatch) {
+      const apiDataTypes = await axios(
+          "http://localhost:3001/types"
+      );
+      dispatch({
+        type: GET_ALL_TYPES ,
+        payload: apiDataTypes.data
+    })
+  }
+}
+
+export const filterByType = (type) => {
+  return { type: FILTER_BY_TYPE, payload: type }
+};

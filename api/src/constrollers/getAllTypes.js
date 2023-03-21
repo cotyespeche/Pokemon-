@@ -6,14 +6,16 @@ const getAllTypes = async () => {
     try {
 
         const apiTypes = await axios.get('https://pokeapi.co/api/v2/type');
+        console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", apiTypes.data)
         await Promise.all(
             apiTypes.data.results.map(type => {
+                
                 let typeToFindOrCreate = {
-                    // id: type.id,
+                    
                     name: type.name
                 };
                 let { name } = typeToFindOrCreate  // consultar el { name }
-                Type.findOrCreate({ where: { name } })
+                Type.findOrCreate({ where: { name } })  // creo una instancia de tabla en cada vuelta del mapeo a traves de la propiedad name
             })
         );
         
@@ -24,7 +26,7 @@ const getAllTypes = async () => {
    
         let allTypes= await Type.findAll();
         if (!allTypes.length) throw Error ("No Types in Database")
-        return allTypes;
+        return allTypes; // la de mi db name/id
     
     
 

@@ -38,9 +38,34 @@ function Filter () {
 
                 <select className={style.selectByAttack} name="orderByAttack" defaultValue={"default"} onChange={handleChange}>
                     <option value="default" disabled>ORDER BY ATTACK</option>
-                    <option value="All">All</option>
-                    <option value="Ascendent">Lowest Attack</option>
-                    <option value="Descendent">Highest Attack</option>
+                    {/* <option value="All">All</option> */}
+                    <option value="Ascendent">- Attack</option>
+                    <option value="Descendent">+ Attack</option>
+                </select>
+
+
+                <select className={style.types} name="filterByType" defaultValue={"default"} onChange={handleChange}>
+                    <option value="default" disabled>FILTER BY TYPE</option>
+                    <option value="ground ">Ground</option>
+                    <option value="steel ">Steel</option>
+                    <option value="dark ">Dark</option>
+                    <option value="flying ">Flying</option>
+                    <option value="rock ">Rock</option>
+                    <option value="water ">Water</option>
+                    <option value="psychic ">Psychic</option>
+                    <option value="unknown ">Unknown</option>
+                    <option value="poison ">Poison</option>
+                    <option value="fire ">Fire</option>
+                    <option value="ice ">Ice</option>
+                    <option value="shadow ">Shadow</option>
+                    <option value="normal ">Normal</option>
+                    <option value="bug ">Bug</option>
+                    <option value="grass ">Grass</option>
+                    <option value="dragon ">Dragon</option>
+                    <option value="fairy ">Fairy</option>
+                    <option value="fighting ">Fighting</option>
+                    <option value="ghost ">Ghost</option>
+                    <option value="electric ">Electric</option>
                 </select>
 
 
