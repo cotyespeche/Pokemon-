@@ -1,5 +1,9 @@
 .nav{
- /* background-color: rgba(215, 247, 6, 0.467); */
+
+  /* background-image: url('https://wallpapercave.com/dwp1x/wp11194860.jpg'); */
+  background-repeat: no-repeat;
+ background-size: cover;
+ background-color: rgba(148, 153, 22, 0.85);
  /* background-image: url(''); */
   
  /* 'https://w0.peakpx.com/wallpaper/818/475/HD-wallpaper-pokeballs-red-catch-anime.jpg' */
@@ -7,16 +11,20 @@
  /* https://w0.peakpx.com/wallpaper/344/959/HD-wallpaper-pokeballs-3d-nintendo-poke-balls-pokeball-pokemon-thumbnail.jpg */
  display: flex;
  /* background-size: cover; */
- background-repeat: no-repeat;
+
+ /* background-repeat: no-repeat;
  width: 100%;
  height: 60px;
  padding-top: 15px;
  padding-bottom: 15px;
- margin-top: 0px;
+ margin-top: 0px; 
+
  /* border-radius: 10px; */
  /* position:absolute; */
- background-attachment: fixed;
- background-position:center;  
+
+ /* background-attachment: fixed;
+ background-position:center;   */
+
  /* display: flex; */
  /* display: inline; */
  

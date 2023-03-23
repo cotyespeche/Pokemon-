@@ -10,17 +10,10 @@ import { Link, useParams } from "react-router-dom";
 const DetailPokemon = () => {
 
     const { id } = useParams()
-
     const dispatch= useDispatch()
-    // const { name,image, life, attack, defense, speed, height, weight, types }= useSelector(state => state.pokemonDetail)
     const pokemon = useSelector(state => state.pokemonDetail)
-    // const {name, flag, continent, capital, subregion, area, population}= useSelector(state => state.countryDetail)
 
-    // useEffect(() => {
-    //     dispatch(getPokemonDetail(id))
 
-    //     return () => dispatch(cleanCountryDetail()) // cuando se desmonte el componente limpia 
-    // }, [dispatch, id])
     useEffect(() => {
         dispatch(getPokemonDetail(id))
         return () => dispatch(cleanPokemonDetail())
@@ -39,9 +32,11 @@ const DetailPokemon = () => {
 
     <div className={style.cardDetail}>
 
-     <h3 className={style.name}>Name: {pokemon?.name ?? 'Data not found'}</h3>
+     
       <img className={style.img} src={pokemon?.image ?? 'Data not found'} alt={pokemon.name} />
       <div className={style.info}>
+      <h3 className={style.name}>Name: {pokemon?.name ?? 'Data not found'}</h3>
+      <h4>Id: {pokemon?.id ?? 'Data not found'}</h4>
       <h4>Life: {pokemon?.life ?? 'Data not found'}</h4>
       <h4>Attack: {pokemon?.attack ?? 'Data not found'}</h4>
       <h4>Defense: {pokemon?.defense ?? 'Data not found'}</h4>

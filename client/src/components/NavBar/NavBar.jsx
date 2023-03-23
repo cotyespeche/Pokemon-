@@ -11,16 +11,16 @@ const NavBar = () => {
           <div className={styles.button}>
             <br></br>
             <SearchBar className={styles.searchBar}/> 
-            {/* <Link to="/">
+            <Link to="/">
                 <button> Landing </button>
-            </Link> */}
+            </Link>
 
             {/* <Link to="/Home">
             <button> Home </button>
             </Link> */}
 
             
-            <Link to="/Form">
+            <Link to="/form">
             <button> Create Pokemon </button>
             </Link>
 

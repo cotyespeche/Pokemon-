@@ -28,7 +28,7 @@ function handleSubmit(e){
     dispatch(getPokemonByName(name))
     // console.log("click2")
     // console.log(name, "name")
-    setName("")
+    setName("")  // cambia el valor delestado. el input actualiza su value (borra lo escrito)
    
     
 }
@@ -44,14 +44,14 @@ return(
             className={style.input}
             type="text"
             placeholder="Search..."
-            value= {name}
-            onChange= {(e)=> handleInputChange(e)}
+            value= {name}  // es mi estado 
+            onChange= {(e)=> handleInputChange(e)} // cada vez que se escribe una letra cambia ... 
             // onKeyDown={handleKeyDown}
           />
           <button
             className={style.boton}
             type="submit"
-            onClick={(event) => handleSubmit(event)}
+            onClick={(event) => handleSubmit(event)}  
           >
             🔍︎
           </button>

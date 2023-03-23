@@ -32,14 +32,17 @@ export const getAllPokemons = ()=>{
 
 
   export const getPokemonDetail = (id) => {
-    return async function(dispatch) {
+    return function(dispatch) {
         try {
-            const response = await axios.get(`http://localhost:3001/pokemons/${id}`)
-            const pedido= response.data
-            dispatch({
-                type:GET_POKEMON_DETAIL,
-                payload: pedido
-            })
+          fetch(`http://localhost:3001/pokemons/${id}`)
+          .then(response=> response.json())
+          .then(data=>dispatch({type:GET_POKEMON_DETAIL, payload: data}))
+            // const response = await axios.get(`http://localhost:3001/pokemons/${id}`)
+            // const pedido= response.data
+            // dispatch({
+            //     type:GET_POKEMON_DETAIL,
+            //     payload: pedido
+            // })
 
         } catch (error) {
             window.alert("Id not found!")
@@ -56,6 +59,7 @@ export const getAllPokemons = ()=>{
     return async function(dispatch) {
         try {
             const response = await axios.get(`http://localhost:3001/pokemons?name=${name}`)
+            console.log('aaaaaaaaaaaaaaaaaaaaaa', response)
             // const pedido= response.data
             dispatch({
                 type: GET_POKEMON_BY_NAME ,

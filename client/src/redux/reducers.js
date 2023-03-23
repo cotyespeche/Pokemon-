@@ -112,29 +112,23 @@ export default function rootReducer (state=initialState, action) {
 
             
             case FILTER_BY_TYPE:
-                // let type=
-                // action.payload === 'All'
-                //     ? state.copyPokemons
-                //     : state.copyPokemons?.filter(pokemon => pokemon.types?.includes(action.payload))
-                // return {
-                //     ...state,
-                //     copyPokemons: type,
+                
                     if (action.payload === "All") {
                                     return {
                                         ...state,
                                         pokemons: state.copyPokemons
                                     }
                                 }
+                                // const filteredTypes =state.pokemons.filter(pokemon => pokemon.types.includes(action.payload))
                                 const filteredTypes = state.pokemons.filter((element) => 
                                     element.types?.includes(action.payload) ? element : null
                                 )
                                 return {
                                    ...state,
                                     copyPokemons: filteredTypes
-                                
-                                
 
             };
+            // copyPokemons: state.pokemons.filter(pokemon => pokemon.types.includes(action.payload))
 
 
             // case FILTER_BY_SOURCE:

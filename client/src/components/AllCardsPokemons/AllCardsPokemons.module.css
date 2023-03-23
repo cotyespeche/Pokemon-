@@ -5,10 +5,12 @@
     padding-top: 80px;
     /* background-color: rgba(255, 243, 243, 0.185); */
     /* border-radius: 20px; */
-    /* margin-top: 0%; */
+    /* margin-top: %; */
     /* margin-left: -2%; */
     /* margin-right: 2%; */
     /* position: relative; */
+    /* background-size:auto;
+    background-color: #4d4242ae; */
    
 }
 
@@ -40,7 +42,7 @@
     --margin: 6px;
     margin: 0 var(--margin);
     border-radius: 6px;
-    background: #202020;
+    background: #5f851d;
     max-width: auto;
     min-width: var(--size);
     height: var(--size);
@@ -48,14 +50,14 @@
     justify-content: center;
     cursor: pointer;
     padding: 0 6px;
-    color: rgb(121, 121, 121);
+    color: rgb(4, 4, 4);
       }
  
 
 
 .listItem:active {
-    background-color: #b8b7b4;
-    color: rgb(223, 220, 219);
+    background-color: #d9d9cc;
+    color: rgb(10, 10, 10);
 }
 
 

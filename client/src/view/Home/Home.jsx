@@ -23,25 +23,27 @@ const dispatch= useDispatch()
     },[dispatch])
    
 
+      // return (
+      //     <div className={style.home}>
+      //        <Filter />
+      //        <AllCardsPokemons />
+      //           <div className={style.imgContainer}>
+      //               {/* <img className={style.img} src={img} alt="img"></img>  */}
+      //           </div>
+      //     </div>
+      //        )
+      // }
+   
 
       return (
   
-        // <div>
-         
-           <div className= {style.home}>
-            <Filter/>
-          
-           
         
-            {/* <img src={img} alt={img}></img> */}
-               {/* <video autoPlay muted loop className={style.videoHome}>
-             <source src={beach} type="video/mp4"></source>
-            </video> */} 
-            {/* </div> */}
-            <AllCardsPokemons />
-          
-          </div>
-          // </div>
+            <div className= {style.home}>
+              <Filter/>           
+              <AllCardsPokemons />
+              {/* <img className={style.img} src={img} alt="img"></img>  */}
+            </div>
+       
       )
   }
   

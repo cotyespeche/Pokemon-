@@ -46,12 +46,13 @@ const AllCardsPokemons = () => {
             {/* {pokemons.length > 0 ? pokemons.map(element=>  */}
             {pokemons.length > 0 ? currentItems.map(element=> 
             <CardPokemon
-            id= {element?.id}
             key= {element?.id}
+            id= {element?.id}
             name= {element?.name}
             image= {element?.image}
-            types= {element?.types}>
-            </CardPokemon>
+            types= {element?.types}
+            />
+            
             )
             : <h1>Loading...</h1>}
            </div>

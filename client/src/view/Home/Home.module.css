@@ -1,11 +1,42 @@
 .home{
-    /* background-image: url('https://www.shutterstock.com/image-photo/yellow-color-pastel-tone-concept-260nw-1084997624.jpg');
-     background-repeat: no-repeat;
+    
+  /* image: url ('https://w0.peakpx.com/wallpaper/925/958/HD-wallpaper-pokeball.jpg'); */
+  /* background-image: url('https://wallpapercave.com/dwp1x/wp11194860.jpg');  DEGRADE */
+    /* background-image: url('https://wallpapercave.com/wp/NZiXCXO.jpg');
+  background-repeat: no-repeat;
+ background-size: cover;
+ display:block;
+    position:absolute;
+    width: 100%; */
+
+    /* background-image: url('https://wallpapercave.com/wp/NZiXCXO.jpg');   */
+    /* background-image: url('https://wallpapercave.com/wp/wp11288521.jpg'); */
+    /* background-image: url('https://wallpapercave.com/wp/st7v9Ar.jpg');BOLASREALES */
+    /* background-image: url('https://wallpapercave.com/wp/wp5701749.jpg'); PIKACHUILUMINADO */
+    background-image: url("https://wallpapercave.com/uwp/uwp3491761.jpeg");
+    background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;  */
-    background-color: rgb(243, 238, 238);
-    background-image: url ('https://w0.peakpx.com/wallpaper/925/958/HD-wallpaper-pokeball.jpg');
+    background-attachment: fixed; 
+    /* display:block; */
+    /* position:absolute; */
+     /* width: 100%;  */
+
 }
+
+/* .imgContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1
+} */
+/* 
+.img{
+    width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
 
 /* 'https://images4.alphacoders.com/110/110306.jpg' */
 /* https://i.pinimg.com/550x/61/df/ce/61dfce6c6c88a5761affe928e1dc9541.jpg */

@@ -30,6 +30,12 @@ function Filter () {
         e.target.name === "filterByType" && dispatch(filterByType(e.target.value))
 
     }
+
+    // function handleByAttack(e) {
+    //     e.preventDefault();
+    //     dispatch(filterByType(e.target.value));
+    // //     history.push("/home")
+    //   }
     
     // function handleTypes(e) {
     //     e.preventDefault();
@@ -80,27 +86,28 @@ function Filter () {
 {/*  */}
                 <select className={style.types} name="filterByType" defaultValue={"default"} onChange={handleChange}>
                     <option value="default" disabled>FILTER BY TYPE</option>
-                    <option value="All">All</option>
-                    <option key="ground" value="ground ">Ground</option>
-                    <option value="steel ">Steel</option>
-                    <option value="dark ">Dark</option>
-                    <option value="flying ">Flying</option>
-                    <option value="rock ">Rock</option>
-                    <option value="water ">Water</option>
-                    <option value="psychic ">Psychic</option>
-                    <option value="unknown ">Unknown</option>
-                    <option value="poison ">Poison</option>
-                    <option value="fire ">Fire</option>
-                    <option value="ice ">Ice</option>
-                    <option value="shadow ">Shadow</option>
-                    <option value="normal ">Normal</option>
-                    <option value="bug ">Bug</option>
-                    <option value="grass ">Grass</option>
-                    <option value="dragon ">Dragon</option>
-                    <option value="fairy ">Fairy</option>
-                    <option value="fighting ">Fighting</option>
-                    <option value="ghost ">Ghost</option>
-                    <option value="electric ">Electric</option>
+                    <option key="All" value="All">All</option>
+                    <option key="ground " value="ground">Ground</option>
+                    <option key="steel" value="steel">Steel</option>
+                    {/* <option key="dark" value="dark">Dark</option> */}
+                    <option key="flying" value="flying">Flying</option>
+                    <option key="rock" value="rock">Rock</option>
+                    <option key="water" value="water">Water</option>
+                    <option key="psychic" value="psychic">Psychic</option>
+                    {/* <option key="unknown" value="unknown">Unknown</option> */}
+                    <option key="poison" value="poison">Poison</option>
+                    <option key="fire" value="fire">Fire</option>
+                    <option key="ice" value="ice">Ice</option>
+                    {/* <option key="shadow" value="shadow">Shadow</option> */}
+                    <option key="normal" value="normal">Normal</option>
+                    <option key="bug" value="bug">Bug</option>
+                   
+                    {/* <option key="grass" value="grass ">Grass</option> */}
+                    {/* <option key="dragon" value="dragon ">Dragon</option> */}
+                    {/* <option key="fairy" value="fairy ">Fairy</option> */}
+                    {/* <option key="fighting" value="fighting ">Fighting</option> */}
+                    {/* <option key="ghost" value="ghost ">Ghost</option> */}
+                    {/* <option key="electric" value="electric ">Electric</option> */}
                 </select>
   
 
