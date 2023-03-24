@@ -6,7 +6,7 @@ const getAllTypes = async () => {
     try {
 
         const apiTypes = await axios.get('https://pokeapi.co/api/v2/type');
-        console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", apiTypes.data)
+        // console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", apiTypes.data)
         await Promise.all(
             apiTypes.data.results.map(type => {
                 

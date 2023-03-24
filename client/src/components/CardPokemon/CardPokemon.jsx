@@ -12,7 +12,7 @@ const CardPokemon = ({ id, name,image, types }) => {
                 <h1 className={style.name}>Name: {name}</h1>
                 <p className={style.types}>Types: {types}</p>
             </Link>
-            <img clasname={style.img} src={image} alt={name} />
+            <img className={style.img} src={image} alt={name} />
 
         
         </div>

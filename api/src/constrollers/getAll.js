@@ -69,15 +69,21 @@ const { Pokemon, Type } = require ('../db')
 
       // Puede leer toda la tabla de la base de datos con el findAll 
           const pokemonsDB = await Pokemon.findAll({
-              include: [{
-                  model: Type,
-                  attributes: ["name"],
-                  through: { attributes: [] }
-               
-              }]
+              include: Type,
+              
           });
-          return pokemonsDB;
+          if (!pokemonsDB.length) {
+            return []
           }
+
+          let cleanPokemonsDB = pokemonsDB.map(pokemon => ({
+            ...pokemon.toJSON(),
+            types: pokemon.types.map(type => type.name).join(" ")
+        }));
+        return cleanPokemonsDB
+        // console.log(cleanPokemonsDB.map(pokemon => pokemon.types)); respuesta => [ 'fighting' ]
+          }
+
           
     //     let cleanPokemonsDB = pokemonsDB.map(pokemon => ({
     //       ...pokemon.toJSON(),
@@ -98,7 +104,6 @@ const { Pokemon, Type } = require ('../db')
             let concat = dbPokemons.concat(apiPokemons);
             if (!concat.length) throw Error ("no pokemon found")
             return concat;
-          
         };
         
         //   return [...dbPokemons,...apiPokemons];
@@ -110,3 +115,22 @@ const { Pokemon, Type } = require ('../db')
     dbInfo,
     apiDb
   };
+
+
+
+
+  // [{
+              //     model: Type,
+              //     attributes: ["name"],
+              //     through: { attributes: [] }
+               
+              // }]
+
+
+
+  // En este caso, la información se representa como un objeto JavaScript, donde cada propiedad del objeto tiene un nombre y un valor. Aunque el objeto JavaScript y la cadena JSON se parecen en su estructura, la diferencia fundamental es que el objeto JavaScript es una estructura de datos en memoria de un programa, mientras que la cadena JSON es una representación serializada de un objeto que se puede enviar a través de la red o almacenar en un archivo.
+
+
+
+
+

@@ -18,7 +18,8 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue:"https://images3.alphacoders.com/677/677583.png"
+      defaultValue:"https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png"
+    //  ' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWh85ztw1jgLTMyk4Kv0iP8i2K1uq2xuI-x4pN9EI&s'
     },
     life: {
       type: DataTypes.INTEGER,

@@ -65,7 +65,7 @@ function Filter () {
 
                 <select className={style.selectBySource} name="filterBySource" defaultValue={"default"} onChange={handleChange}>
                     <option value="default" disabled>Filter by source</option>
-                    <option value="Reset">All</option>
+                    <option value="allPoke">All</option>
                     <option value="Api">Api</option>
                     <option value="Db">Db</option>
                    

@@ -66,6 +66,7 @@ router.get('/:id', async(req, res) =>{
      
 router.post('/create', async(req, res) =>{
 
+
   try {
     const pokemonPost = await postPokemon(req.body);
     if (!pokemonPost) throw Error ('Pokemon not found');
@@ -75,6 +76,8 @@ router.post('/create', async(req, res) =>{
       res.status(404).send({error: error.message})
   }
 })
+
+
         // const  { name, image, life, attack, defense, speed, height, weight, types } = req.body
       // const newPokemon= await postPokemon(name, image, life, attack, defense, speed, height, weight, types)  
 

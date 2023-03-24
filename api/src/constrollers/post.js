@@ -6,7 +6,7 @@ const { Pokemon, Type } = require ('../db')
         const postPokemon = async (pokemon) => {
 
           const { name, image, life, attack, defense, speed, height, weight, types } = pokemon;
-           if (!name || !image|| !life || !attack || !defense || !types) throw new Error("Missing information");
+          //  if (!name || !image|| !life || !attack || !defense || !types) throw new Error("Missing information");
 
            let findedPoke = await Pokemon.findOne({ where: { name: name } });
             if (findedPoke) {
@@ -15,8 +15,23 @@ const { Pokemon, Type } = require ('../db')
 
           try {
           
-          const pokemonToPost = { name, image, life, attack, defense, speed, height, weight }; // creo un objeto con estas propiedades que va a ser usado para crear la instancia
-          let newPokemon = await Pokemon.create(pokemonToPost); // Creo la instancia de Pokemon 
+          // const pokemonToPost = { name, image, life, attack, defense, speed, height, weight }; // creo un objeto con estas propiedades que va a ser usado para crear la instancia
+          // let newPokemon = await Pokemon.create(pokemonToPost); // Creo la instancia de Pokemon 
+          
+
+
+           // const pokemonToPost = { name, image, life, attack, defense, speed, height, weight }; 
+            const newPokemon = await Pokemon.create({ 
+              name,
+              image,
+              life,
+              attack, 
+              defense,
+              speed,
+              height,
+              weight
+              }); // Creo la instancia de Pokemon 
+          
           newPokemon.addTypes(types) // relacion entre la instancia y los types
           
           return 'Successfully created pokemon';

@@ -112,7 +112,7 @@ export default function rootReducer(state = initialState, action) {
 
     case FILTER_BY_SOURCE:
             let allPoke = state.pokemons;
-            if (action.payload !== "All") {
+            if (action.payload !== "allPoke") {
                 allPoke = action.payload === "Api"
                 ? allPoke.filter((poke) => !isNaN(poke.id))
                 : allPoke.filter((poke) => isNaN(poke.id));
