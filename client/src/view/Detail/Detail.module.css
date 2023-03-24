@@ -55,26 +55,37 @@ opacity: 0.9;
             padding: 15px 10px;
             text-align: center;
             text-transform: uppercase;
-            margin: 25em;
-            width: 33em;
+            margin: 28em;
+            width: 25em;
             height: 20em;
-            margin-top: 7px;
+            margin-top: 30px;
             right: 130px;
             /* left: 0px;  */
-             background-color: rgba(227, 210, 210, 0.749);
+             background-color: rgba(227, 210, 210, 0.559);
             border-radius: 20px;
             position: relative;
-            border: 3px solid rgba(7, 0, 0, 0.891);
+            border: 3px solid rgb(7, 0, 0);
             opacity: 0.9;
             display: flex;
             flex-direction: row;
-            box-shadow: 0px 2px 3px rgb(137, 214, 208); 
-    
+            box-shadow: 15px 15px 15px rgb(18, 18, 18); 
+            
 
           
           
 
 }
+
+.cardDetail:hover {
+   
+        -webkit-transform:scale(1.3);transform:scale(1.3); 
+      box-shadow: 0px 0px 10px 10px #dc0e0e; 
+     -webkit-box-shadow: 15px 15px 30px 15px #dcddd6fe; 
+      transform: rotate(360deg);
+     -webkit-transform: rotate(360deg);
+     /* -webkit-transform:scale(1.3);transform:scale(1.3) */
+     }
+
 
 
 .img {
@@ -85,32 +96,88 @@ opacity: 0.9;
 }
 
  .buttonBack {
-    letter-spacing: 5px;
+    /* letter-spacing: 5px;
     font-family: 'Ascrada';
     font-weight: 700;
     font-size: 1em;
+    cursor: pointer; */
 
     /* font-size: 20px;
     font-weight: 300; */
     /* border: 4px solid rgba(9, 0, 0, 0); */
 
-    background-color: rgb(245, 245, 239);
+    /* background-color: rgb(245, 245, 239);
     border-radius: 5px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-left: 4em;
+    margin-left: 55em;
     margin-top: 2em;
-    position: relative;
+    position: relative; */
 
     /* margin-right: 36em; */
     /* position: absolute; */
+/*** ESTILOS BOTÓN SLIDE RIGHT ***/
 
+    background: #fff; /* color de fondo */
+    
+    color: #070708; /* color de fuente */
+    border: 2px solid #0b0b0c; /* tamaño y color de borde */
+    padding: 16px 20px;
+    border-radius: 5px; /* redondear bordes */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    margin-left: 55em;
+    margin-top: 2em;
+    letter-spacing: 5px;
+  }
+
+  .buttonBack:hover {
+    color: #fff; /* color de fuente hover */
+  }
+  .buttonBack::after {
+    content: "";
+    background:rgba(148, 153, 22, 0.85); /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    right: -100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  .buttonBack:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
     
     
-} 
-  
+
+
+/* .buttonBack:hover {
+   
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        -webkit-transition: all 0.35s;
+        transition: all 0.35s;
+      } */
+
 
 .info{
     font-family: 'Ascrada';

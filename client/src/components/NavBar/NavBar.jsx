@@ -12,7 +12,7 @@ const NavBar = () => {
             <br></br>
             <SearchBar className={styles.searchBar}/> 
             <Link to="/">
-                <button> Landing </button>
+                <button> Landing  </button>
             </Link>
 
             {/* <Link to="/Home">

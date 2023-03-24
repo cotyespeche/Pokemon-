@@ -1,6 +1,6 @@
 .input {
     background: #f0f0f3;
-    width: 200px;
+    width: 150px;
     font-size: 15px;
     font-family: monospace;
     margin-left: 90px;
@@ -17,7 +17,17 @@
 
 }
 
-.container{
-    margin-left: 700px;
+.container button{
+    /* margin-left: 700px; */
+    margin-right: 700px;
   
+}
+
+.container button submit{
+  background-size: 10px;
+  background-color: blueviolet;
+}
+
+.container btn {
+  background-color: blue;
 }

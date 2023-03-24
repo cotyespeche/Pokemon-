@@ -1,38 +1,16 @@
 .nav{
 
-  /* background-image: url('https://wallpapercave.com/dwp1x/wp11194860.jpg'); */
-  background-repeat: no-repeat;
+
+ background-repeat: no-repeat;
  background-size: cover;
  background-color: rgba(148, 153, 22, 0.85);
- /* background-image: url(''); */
-  
- /* 'https://w0.peakpx.com/wallpaper/818/475/HD-wallpaper-pokeballs-red-catch-anime.jpg' */
  
- /* https://w0.peakpx.com/wallpaper/344/959/HD-wallpaper-pokeballs-3d-nintendo-poke-balls-pokeball-pokemon-thumbnail.jpg */
- display: flex;
- /* background-size: cover; */
-
- /* background-repeat: no-repeat;
- width: 100%;
- height: 60px;
- padding-top: 15px;
- padding-bottom: 15px;
- margin-top: 0px; 
-
- /* border-radius: 10px; */
- /* position:absolute; */
-
- /* background-attachment: fixed;
- background-position:center;   */
-
- /* display: flex; */
- /* display: inline; */
- 
-  
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
 }
 
 .button button {
-
   text-transform: uppercase;
   background: #e4e5dd;
   border: none;
@@ -40,19 +18,40 @@
   letter-spacing: 5px;
   font-family: sans-serif;
   color: rgb(9, 8, 8);
-  /* position: relative; */
+  
+  /* position:fixed; */
   margin-right: 1em;
-  /* bottom: 20px; */
-  /* margin-bottom: 20px; */
-  /* margin-right: 25px; */
-  margin-left: 10px;
+  border-radius: 3px;
   transition: all ease-in-out 0.2s;
   border-radius: 3px;
+  /* display: block; */
+  /* float: left; */
   
-    /* background-color: #a945c794; */
   }
 
   .button button:hover {
     background: rgba(169, 163, 163, 0.935);
   }
 
+  /* .nav {
+    background-color: rgb(123, 123, 123);
+    padding-top: 20px;
+    padding-bottom: 5px;
+    background-attachment: fixed;
+   }
+   
+.button button{
+    color: #fdfdfd;
+    letter-spacing: 2px;
+    font-size: 25px;
+    text-decoration: none;
+    background-color: #ffffff00;
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: 0.4s;
+    border: 1px solid rgba(255, 255, 255, 0.499);
+    padding: 5px;
+    border-radius: 2px;
+   }
+   
+    */

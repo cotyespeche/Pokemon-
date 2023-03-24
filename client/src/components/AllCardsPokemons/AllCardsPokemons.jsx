@@ -64,6 +64,11 @@ const AllCardsPokemons = () => {
 }
 
 export default AllCardsPokemons;
+
+
+
+
+
 // id: pokemon.id,
 // name: pokemon.name,
 // image: pokemon.sprites.other.dream_world.front_default, //sprites

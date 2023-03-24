@@ -49,15 +49,15 @@ return(
             // onKeyDown={handleKeyDown}
           />
           <button
-            className={style.boton}
+            className={style.submit}
             type="submit"
             onClick={(event) => handleSubmit(event)}  
           >
             🔍︎
           </button>
 
-          <Link to="/home">
-                <button onClick={deleteSearch} className={style.btn} >Delete Search</button>
+          <Link to="/home" className={style.btn}>
+                <button onClick={deleteSearch} >Delete Search</button>
             </Link>
         </div>
       );

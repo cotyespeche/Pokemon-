@@ -1,15 +1,6 @@
 const { Pokemon, Type } = require ('../db')
-const { axios } =require('axios');
 
-   
-        // const { name, image, life, attack, defense, speed, height, weight, types} = pokemon;
-        
-        //  if (!name || image || !life || !attack || !defense ) throw new Error("Missing information");
 
-        // const newPokemon = { name, image, life, attack, defense, speed, height, weight };
-        // let createdPokemon = await Pokemon.create(newPokemon);
-        // createdPokemon.addTypes(types);
-        // return newPokemon;
      
 
         const postPokemon = async (pokemon) => {

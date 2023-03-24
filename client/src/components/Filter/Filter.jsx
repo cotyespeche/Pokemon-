@@ -28,7 +28,7 @@ function Filter () {
         e.target.name === "orderByAttack" && dispatch(orderByAttack(e.target.value))
         // e.target.name === "filterBySource" && dispatch(filterBySource(e.target.value))
         e.target.name === "filterByType" && dispatch(filterByType(e.target.value))
-
+        e.target.name === "filterBySource" && dispatch(filterBySource(e.target.value))
     }
 
     // function handleByAttack(e) {
@@ -63,13 +63,13 @@ function Filter () {
                 </select>
 
 
-                {/* <select className={style.selectBySource} name="filterBySource" defaultValue={"default"} onChange={handleChange}>
+                <select className={style.selectBySource} name="filterBySource" defaultValue={"default"} onChange={handleChange}>
                     <option value="default" disabled>Filter by source</option>
-                    <option value="Reset">Reset filter</option>
+                    <option value="Reset">All</option>
                     <option value="Api">Api</option>
                     <option value="Db">Db</option>
                    
-                </select> */}
+                </select>
                
 
 
