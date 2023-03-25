@@ -9,6 +9,7 @@ import {
   GET_ALL_TYPES,
   FILTER_BY_TYPE,
   FILTER_BY_SOURCE,
+  POST_POKEMON,
 } from "./actionType";
 
 const initialState = {
@@ -25,7 +26,7 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemons: action.payload,
-        copyPokemons: action.payload,
+        copyPokemons: action.payload, // para tener un resplado de la copia que filtro
       };
 
     case GET_POKEMON_DETAIL:
@@ -121,6 +122,11 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 copyPokemons: [...allPoke],
         };
+
+        case POST_POKEMON:
+  return {
+    ...state,
+  };
   
  
 

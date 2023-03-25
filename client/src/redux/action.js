@@ -9,6 +9,7 @@ import {
   GET_ALL_TYPES,
   FILTER_BY_TYPE,
   FILTER_BY_SOURCE,
+  POST_POKEMON
 } from "./actionType";
 
 import axios from "axios";
@@ -32,8 +33,25 @@ export const getAllPokemons = () => {
 //////////////////////////////////////// DETAIL ////////////////////////////////////////////////////////
 export const getPokemonDetail = (id) => {
   return async function (dispatch) {
-    try {
-      // fetch(`http://localhost:3001/pokemons/${id}`)
+   
+      
+
+      const {data}= await axios.get(`http://localhost:3001/pokemons/${id}`)
+      // const pedido= response.data
+      console.log('eeeeeeeeeeeeeeeeeeeeee',data)
+      if (data.name) {
+        dispatch({
+          type:GET_POKEMON_DETAIL,
+          payload: data
+      })
+      } else{
+        window.alert('data not found')
+      }
+      // console.log("pasoooooooooooooo");
+  
+  };
+};
+// fetch(`http://localhost:3001/pokemons/${id}`)
       //   .then((response) => response.json())
       //   .then((data) => {
       //     if (data.name) {
@@ -42,19 +60,6 @@ export const getPokemonDetail = (id) => {
       //       throw Error("Data not found");
       //     }
       //   });
-
-      const response = await axios.get(`http://localhost:3001/pokemons/${id}`)
-      const pedido= response.data
-      dispatch({
-          type:GET_POKEMON_DETAIL,
-          payload: pedido
-      })
-      // console.log("pasoooooooooooooo");
-    } catch (error) {
-      window.alert("Id not found!");
-    }
-  };
-};
 
 export const cleanPokemonDetail = () => {
   return { type: CLEAN_POKEMON_DETAIL };
@@ -122,3 +127,11 @@ export const filterBySource = (payload) => {
     payload: payload,
   };
 };
+
+///////////////////////////////////////////// POST ///////////////////////////////////////////////////////
+export const postPokemon= (payload) => {
+  // return {
+  //   type: POST_POKEMON,
+  //   payload: payload
+  // }
+}

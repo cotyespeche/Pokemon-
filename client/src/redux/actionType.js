@@ -13,3 +13,5 @@ export const DELETE_STATE = 'DELETE_STATE'
 export const ORDER_BY_NAME= 'ORDER_BY_NAME'
 export const ORDER_BY_ATTACK = 'ORDER_BY_ATTACK'
 
+export const POST_POKEMON= 'POST_POKEMON'
+
