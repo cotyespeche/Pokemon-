@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue:"https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png",
+      allowNull: false
       // allowNull: false
     //  ' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWh85ztw1jgLTMyk4Kv0iP8i2K1uq2xuI-x4pN9EI&s'
     },

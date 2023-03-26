@@ -1,6 +1,7 @@
 .card {
     object-fit:cover;
     width: 10em;
+    /* width: fit-content; */
     height: 10em;
 
     display: flex;

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import styles from "./NavBar.module.css"
 import SearchBar from '../SearchBar/SearchBar';
+import Filter from '../Filter/Filter';
 
 
 const NavBar = () => {
@@ -22,7 +23,7 @@ const NavBar = () => {
 
             </nav>
                 <SearchBar className={styles.searchBar}/> 
-
+                <Filter/> 
        </div>
     )
 }

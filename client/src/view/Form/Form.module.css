@@ -23,6 +23,8 @@
 .inputTitulo{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 2em;
+  margin-left: 70px;
+  
 
 }
 /* @font-face {
@@ -78,7 +80,7 @@ width: 100px;
   border-radius: 50%;
   display: flex;
   margin-top: 2em;
-  margin-left: 26em;
+  margin-left: 27em;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 
@@ -122,6 +124,6 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     cursor: pointer;
     border-radius: 6px;
     transition-duration: 0.2s;
-    margin-left: 20px;
+    margin-left: 130px;
     margin-top: 10px;
 }

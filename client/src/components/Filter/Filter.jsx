@@ -19,7 +19,7 @@ function Filter () {
 
     const handleChange = (e) => {
         e.target.name === "orderByName" && dispatch(orderByName(e.target.value))
-        // e.target.name === "orderByAttack" && dispatch(orderByAttack(e.target.value))
+        e.target.name === "orderByAttack" && dispatch(orderByAttack(e.target.value))
         e.target.name === "filterByType" && dispatch(filterByType(e.target.value))
         e.target.name === "filterBySource" && dispatch(filterBySource(e.target.value))
       
@@ -47,14 +47,16 @@ function Filter () {
                     <option value="default" disabled>ORDER BY</option>
                     <option value="A-Z">A-Z</option>
                     <option value="Z-A">Z-A</option>
-                    <option value="+ Attack">+ Attack</option>
-                    <option value="- Attack">- Attack</option>
+                    {/* <option value="+ Attack">+ Attack</option>
+                    <option value="- Attack">- Attack</option> */}
                 </select>
 
 
                  <select className={styles.selectList} name="orderByAttack" defaultValue={"default"} onChange={handleChange}> 
                      <option value="default" disabled>ORDER BY ATTACK</option> 
-                     <option value="All">All</option> 
+                     {/* <option value="All">All</option>  */}
+                     <option value="+ Attack">- Attack</option>
+                    <option value="- Attack">+ Attack</option>
                    
                 </select>
 

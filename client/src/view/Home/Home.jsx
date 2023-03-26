@@ -25,7 +25,7 @@ const dispatch= useDispatch()
   
         
             <div className= {style.home}>
-              <Filter/>           
+                       
               <AllCardsPokemons />
               {/* <img className={style.img} src={img} alt="img"></img>  */}
             </div>

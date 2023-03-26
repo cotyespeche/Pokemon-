@@ -97,12 +97,12 @@ export const orderByName = (payload) => {
 };
 
 ////////////////////////////////////////// ORDER BY ATTACK /////////////////////////////////////////////////
-// export const orderByAttack = (payload) => {
-//   return {
-//     type: ORDER_BY_ATTACK,
-//     payload,
-//   };
-// };
+export const orderByAttack = (payload) => {
+  return {
+    type: ORDER_BY_ATTACK,
+    payload,
+  };
+};
 
 ///////////////////////////////////////// GET ALL TYPES ////////////////////////////////////////////////////
 export const getAllTypes = () => {
