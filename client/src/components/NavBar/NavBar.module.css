@@ -1,57 +1,58 @@
-.nav{
-
-
- background-repeat: no-repeat;
- background-size: cover;
- background-color: rgba(148, 153, 22, 0.85);
- 
- justify-content: center;
- align-items: center;
- flex-wrap: wrap;
-}
-
-.button button {
-  text-transform: uppercase;
-  background: #e4e5dd;
-  border: none;
-  padding: 5px 10px 5px 10px;
-  letter-spacing: 5px;
-  font-family: sans-serif;
-  color: rgb(9, 8, 8);
-  
-  /* position:fixed; */
-  margin-right: 1em;
-  border-radius: 3px;
-  transition: all ease-in-out 0.2s;
-  border-radius: 3px;
-  /* display: block; */
-  /* float: left; */
-  
-  }
-
-  .button button:hover {
-    background: rgba(169, 163, 163, 0.935);
-  }
-
-  /* .nav {
-    background-color: rgb(123, 123, 123);
+.bodynav {
+    background-color: rgba(148, 153, 22, 0.85);
     padding-top: 20px;
     padding-bottom: 5px;
     background-attachment: fixed;
    }
+
    
-.button button{
-    color: #fdfdfd;
+
+.b1{
+  color: #3c5608;
     letter-spacing: 2px;
-    font-size: 25px;
+    font-size: 15px;
     text-decoration: none;
-    background-color: #ffffff00;
+    background-color: #0505053a;
     border: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition: 0.4s;
     border: 1px solid rgba(255, 255, 255, 0.499);
     padding: 5px;
     border-radius: 2px;
+    position: relative;;
    }
    
-    */
+   
+.b1:hover {
+    cursor: pointer;
+    background: rgba(24, 255, 178, 0.874);
+
+    }    
+
+    .b2{
+      color: #3c5608;
+        letter-spacing: 2px;
+        font-size: 15px;
+        text-decoration: none;
+        background-color: #0505053a;
+        border: none;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        transition: 0.4s;
+        border: 1px solid rgba(255, 255, 255, 0.499);
+        padding: 5px;
+        border-radius: 2px;
+      position: relative;
+       }
+       
+       
+    .b2:hover {
+        cursor: pointer;
+        background: rgba(24, 255, 178, 0.874);
+        }    
+    
+/*    
+   @font-face {
+       font-family: "fontnew9";
+       src: url("../../components/images-font/Heaters.otf");
+     }
+      */

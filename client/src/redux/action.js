@@ -97,12 +97,12 @@ export const orderByName = (payload) => {
 };
 
 ////////////////////////////////////////// ORDER BY ATTACK /////////////////////////////////////////////////
-export const orderByAttack = (payload) => {
-  return {
-    type: ORDER_BY_ATTACK,
-    payload,
-  };
-};
+// export const orderByAttack = (payload) => {
+//   return {
+//     type: ORDER_BY_ATTACK,
+//     payload,
+//   };
+// };
 
 ///////////////////////////////////////// GET ALL TYPES ////////////////////////////////////////////////////
 export const getAllTypes = () => {
@@ -129,9 +129,11 @@ export const filterBySource = (payload) => {
 };
 
 ///////////////////////////////////////////// POST ///////////////////////////////////////////////////////
-export const postPokemon= (payload) => {
-  // return {
-  //   type: POST_POKEMON,
-  //   payload: payload
-  // }
+
+export const postPokemon= (form) => {
+  return async function(dispatch){
+    const {data} = await axios.post("http://localhost:3001/pokemons/create", form)
+    return dispatch ({type: POST_POKEMON, payload: data}) 
+    
+  }
 }

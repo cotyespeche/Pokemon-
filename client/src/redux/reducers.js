@@ -57,33 +57,38 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         copyPokemons: [...state.copyPokemons].sort((a, b) => {
-          if (action.payload === "Ascendent") {
+          if (action.payload === "A-Z") {
             if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
             return 0;
-          } else {
-            if (a.name < b.name) return 1;
-            if (a.name > b.name) return -1;
-            return 0;
-          }
-        }),
-      };
+          } else if (action.payload === "Z-A") {
+              if (a.name > b.name) return -1;
+              return 0
+            }else if (action.payload === "+ attack") {
+                if (a.attack > b.attack) return -1;
+                return 0;
+              }else if (action.payload === "- attack") {
+                  if (a.attack < b.attack) return -1;
+                  return 0
+                }
+                  return 0
+              })}
+         
 
-    case ORDER_BY_ATTACK:
-      return {
-        ...state,
-        copyPokemons: [...state.copyPokemons].sort((a, b) => {
-          if (action.payload === "Ascendent") {
-            if (a.attack < b.attack) return -1;
-            if (a.attack > b.attack) return 1;
-            return 0;
-          } else {
-            if (a.attack < b.attack) return 1;
-            if (a.attack > b.attack) return -1;
-            return 0;
-          }
-        }),
-      };
+    // case ORDER_BY_ATTACK:
+    //   return {
+    //     ...state,
+    //     copyPokemons: [...state.copyPokemons].sort((a, b) => {
+    //       if (action.payload === "Ascendent") {
+    //         if (a.attack < b.attack) return -1;
+    //         if (a.attack > b.attack) return 1;
+    //         return 0;
+    //       } else {
+    //         if (a.attack < b.attack) return 1;
+    //         if (a.attack > b.attack) return -1;
+    //         return 0;
+    //       }
+    //     }),
+    //   };
     // let aux = state.pokemons
     // let sorted = action.payload === "Ascendent"
     // ? aux.sort((a,b) => a.attack - b.attack)
@@ -123,10 +128,11 @@ export default function rootReducer(state = initialState, action) {
                 copyPokemons: [...allPoke],
         };
 
-        case POST_POKEMON:
-  return {
-    ...state,
-  };
+      case POST_POKEMON:
+             return {
+                ...state,
+                
+            };
   
  
 

@@ -1,6 +1,6 @@
 import { orderByName, orderByAttack, filterBySource, filterByType, getAllTypes } from '../../redux/action';
 import { useDispatch } from 'react-redux'
-import style from './Filter.module.css'
+import styles from './Filter.module.css'
 import { useState, useSelector } from 'react';
 // import { useHistory } from 'react-router-dom';
 // import { useEffect } from 'react';
@@ -19,7 +19,7 @@ function Filter () {
 
     const handleChange = (e) => {
         e.target.name === "orderByName" && dispatch(orderByName(e.target.value))
-        e.target.name === "orderByAttack" && dispatch(orderByAttack(e.target.value))
+        // e.target.name === "orderByAttack" && dispatch(orderByAttack(e.target.value))
         e.target.name === "filterByType" && dispatch(filterByType(e.target.value))
         e.target.name === "filterBySource" && dispatch(filterBySource(e.target.value))
       
@@ -40,25 +40,26 @@ function Filter () {
 
     return (
     
-    <div className= {style.home}>
+    <div className= {styles.container}>
             
-            <div className={style.selectContainer}>
-                <select className={style.selecByName} name="orderByName" defaultValue={"default"} onChange={handleChange}>
-                    <option value="default" disabled>ORDER BY NAME</option>
-                    <option value="Ascendent">A-Z</option>
-                    <option value="Descendent">Z-A</option>
+            <div className={styles.selectContainer}>
+                <select className={styles.selectList} name="orderByName" defaultValue={"default"} onChange={handleChange}>
+                    <option value="default" disabled>ORDER BY</option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                    <option value="+ Attack">+ Attack</option>
+                    <option value="- Attack">- Attack</option>
                 </select>
 
 
-                <select className={style.selectByAttack} name="orderByAttack" defaultValue={"default"} onChange={handleChange}>
-                    <option value="default" disabled>ORDER BY ATTACK</option>
-                    {/* <option value="All">All</option> */}
-                    <option value="Ascendent">- Attack</option>
-                    <option value="Descendent">+ Attack</option>
+                 <select className={styles.selectList} name="orderByAttack" defaultValue={"default"} onChange={handleChange}> 
+                     <option value="default" disabled>ORDER BY ATTACK</option> 
+                     <option value="All">All</option> 
+                   
                 </select>
 
 
-                <select className={style.selectBySource} name="filterBySource" defaultValue={"default"} onChange={handleChange}>
+                <select className={styles.selectList} name="filterBySource" defaultValue={"default"} onChange={handleChange}>
                     <option value="default" disabled>BY SOURCE</option>
                     <option value="allPoke">All</option>
                     <option value="Api">Api</option>
@@ -79,7 +80,7 @@ function Filter () {
                     </select>
 
 {/*  */}
-                <select className={style.types} name="filterByType"  defaultValue={"default"}  onChange={handleChange}>
+                <select className={styles.selectList} name="filterByType"  defaultValue={"default"}  onChange={handleChange}>
                     <option value="default" disabled>FILTER BY TYPE</option>
                     <option key="All" value="All">All</option>
                     <option key="ground " value="ground">Ground</option>

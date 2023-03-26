@@ -6,27 +6,23 @@ import SearchBar from '../SearchBar/SearchBar';
 
 const NavBar = () => {
     return (
-        <div className={styles.nav}> 
-            
-          <div className={styles.button}>
-            <br></br>
-            <SearchBar className={styles.searchBar}/> 
-            <Link to="/">
-                <button> Landing  </button>
-            </Link>
+        <div className={styles.bodynav}> 
+            <nav>
+                <Link to="/">
+                    <button className={styles.b1}> Landing  </button>
+                </Link>
 
-            {/* <Link to="/Home">
-            <button> Home </button>
-            </Link> */}
+                {/* <Link to="/Home">
+                <button> Home </button>
+                </Link> */}
 
-            
-            <Link to="/form">
-            <button> Create Pokemon </button>
-            </Link>
+                <Link to="/form">
+                <button className={styles.b2}> Create Pokemon </button>
+                </Link>
 
-            
-            </div>
-            
+            </nav>
+                <SearchBar className={styles.searchBar}/> 
+
        </div>
     )
 }
