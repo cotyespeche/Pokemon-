@@ -13,17 +13,18 @@
 .container {
   position: relative;
   padding: 60px;
-  background-color: rgba(145, 14, 150, 0.13);
+  background-color: rgba(145, 14, 150, 0.438);
   height: 450px;
   display: inline-block;
   top: 20px;
   width: 500px;
+ 
 }
 
 .inputTitulo{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 2em;
-  margin-left: 70px;
+  font-size: 1.5em;
+  margin-left: 100px;
   
 
 }
@@ -71,15 +72,15 @@ width: 100px;
 }
 
 .btn {
-  background: #9ee70bc0;
-  border: none;
+  background: #8d8e8bf5;
+  border: 50%;
   padding: 15px 25px 15px 25px;
   font-size: 20px;
   color: rgb(0, 0, 0);
   transition: all ease-in-out 0.2s;
   border-radius: 50%;
   display: flex;
-  margin-top: 2em;
+  margin-top: 1em;
   margin-left: 27em;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
@@ -87,11 +88,11 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
 }
 
 .btn:hover {
-  background: rgba(24, 255, 178, 0.874);
+  background: rgba(218, 222, 219, 0.874);
 }
 
 .btn1 {
-    background: #9ee70bc0;
+    background: #b8bbb3c0;
   border: none;
   padding: 5px 10px 5px 10px;
   font-size: 20px;
@@ -109,8 +110,8 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
 
 
 .btn1:hover {
-    background: rgba(24, 255, 178, 0.874);
-} 
+    background: rgba(218, 222, 219, 0.874);
+}
 
 
 .selectT {
@@ -126,4 +127,9 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     transition-duration: 0.2s;
     margin-left: 130px;
     margin-top: 10px;
+}
+
+@font-face {
+  font-family:'Ascrada';
+  src: url('../../img/Ascrada.ttf');
 }

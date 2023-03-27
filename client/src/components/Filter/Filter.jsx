@@ -99,13 +99,12 @@ function Filter () {
                     <option key="shadow" value="shadow">Shadow</option>
                     <option key="normal" value="normal">Normal</option>
                     <option key="bug" value="bug">Bug</option>
-                   
-                    {/* <option key="grass" value="grass ">Grass</option> */}
-                    {/* <option key="dragon" value="dragon ">Dragon</option> */}
-                    {/* <option key="fairy" value="fairy ">Fairy</option> */}
-                    {/* <option key="fighting" value="fighting ">Fighting</option> */}
-                    {/* <option key="ghost" value="ghost ">Ghost</option> */}
-                    {/* <option key="electric" value="electric ">Electric</option> */}
+                    <option key="grass" value="grass">Grass</option>
+                    <option key="dragon" value="dragon">Dragon</option>
+                    <option key="fairy" value="fairy">Fairy</option>
+                    <option key="fighting" value="fighting">Fighting</option>
+                    <option key="ghost" value="ghost">Ghost</option>
+                    <option key="electric" value="electric">Electric</option>
                 </select>
   
 

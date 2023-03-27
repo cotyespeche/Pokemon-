@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom'
 
 
 
+
 export default function SearchBar (){
+
 
     const dispatch= useDispatch()
     const [name, setName]= useState("")

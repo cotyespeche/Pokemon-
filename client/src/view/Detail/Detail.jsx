@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Detail.module.css'
 import { Link, useParams } from "react-router-dom";
+import gif from '../../img/Loading.gif'
 
 
 
@@ -14,19 +15,35 @@ const DetailPokemon = () => {
     const dispatch= useDispatch()
     const pokemon = useSelector(state => state.pokemonDetail)
 
-    // const [isLoading, setIsLoading] = useState(true);
-
+    
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+      dispatch(getPokemonDetail(id))
+      return () => dispatch(cleanPokemonDetail())
+  }, [dispatch, id])
 
     useEffect(() => {
-        dispatch(getPokemonDetail(id))
-        return () => dispatch(cleanPokemonDetail())
-    }, [dispatch, id])
+        const timer = setTimeout(() => {
+          setLoading(false);
+        }, 3000); //  cantidad de tiempo que se muestre el GIF
+        return () => clearTimeout(timer);
+      }, []);
 
-    
-    if (!pokemon) {
-      return <div> NO SE ENCONTRARON LOS DATOS </div>;
-    }
-    
+  
+   
+      // Verifica si todas las variables de estado están establecidas
+      if (!pokemon.name || !pokemon.id || !pokemon.life || !pokemon.image || !pokemon.attack || !pokemon.defense || !pokemon.speed || !pokemon.height || !pokemon.weight || !pokemon.types) {
+        return (
+          <div className={style.loading}>
+          <div>
+            <img src={gif} alt="Loading..." className={style.gif} />
+          </div>
+          </div>
+        );
+      }
+
+
+
 
     return (
       // <>
@@ -36,7 +53,7 @@ const DetailPokemon = () => {
                 <Link to="/home">
                   <button className={style.buttonBack}>BACK</button>
                 </Link>
-
+                {/* {pokemon.length > 0 ? */}
 
                   <div className={style.cardDetail}>   
                        <img className={style.img} src={pokemon?.image} alt={pokemon.name} />
@@ -56,10 +73,17 @@ const DetailPokemon = () => {
  
                       {/* operador de fusion nulo o "Nullish coalescing operator" en inglés.  */}
                         </div>
+                        
                   </div>
-              
-  
+             {/* :
+            <div class="loading">
+            <img src={gif} alt="Loading..." />
+           </div>
+            }  */}
+      
             </div>
+
+           
           </div>
           //  )}
           //   </>
