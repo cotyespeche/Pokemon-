@@ -217,10 +217,9 @@ const Form = () => {
         </select>
         <div>{form.types.map((seleccionado) => seleccionado + " ")}</div>
         
+        
 
  
-
-
         <button
           type="submit"
           //  onClick={handleInputChange}
@@ -234,7 +233,7 @@ const Form = () => {
             form.height === "" ||
             form.weight === "" ||
             form.types.length === 0
-          }
+          } // esta comprobando si alguna de las condiciones es falsa 
           className={style.btn}
         >
           Create

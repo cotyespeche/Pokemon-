@@ -78,17 +78,8 @@ function Filter () {
                 </select>
                
 
-                {/* <select name="filterByType" defaultValue="Default" onChange={(event) => handleTypes(event)} >
-                        <option key="Types" value="" hidden>Filter By Types</option>
-                        <option key="All" value="All">All</option>
-                        {
-                            allTypes?.map((type, i) => {
-                                return <option key={type.name + i} value={type.name}>{type.name}</option>
-                            })
-                            }
-                    </select>
-
-{/*  */}
+               
+               
                 <select className={styles.selectList} name="filterByType"  defaultValue={"default"}  onChange={handleChange}>
                     <option value="default" disabled>FILTER BY TYPE</option>
                     <option key="All" value="All">All</option>

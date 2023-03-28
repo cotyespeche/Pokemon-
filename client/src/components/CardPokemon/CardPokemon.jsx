@@ -1,9 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import style from './CardPokemon.module.css'
+import { getAllPokemons } from "../../redux/action";
+import { useDispatch } from "react-redux";
 
 
 const CardPokemon = ({ id, name,image, types, attack, defense}) => {
+    
+
     return (
        
         <div className= {style.card}>
@@ -21,6 +25,25 @@ const CardPokemon = ({ id, name,image, types, attack, defense}) => {
         
     )
 }
+
+// const CardPokemon = ({ id, name, image, types, attack, defense }) => {
+//     return (
+//       <div className={style.card}>
+//         <Link to={`/detail/${id}`} className={style.link}>
+//           <h1 className={style.name}>
+//             Name: {name ? name : 'Pokemon name not found'}
+//           </h1>
+//           <p className={style.types}>Types: {types}</p>
+//           <p>Atacck: {attack}</p>
+//           <p>Defense: {defense}</p>
+//         </Link>
+//         <img className={style.img} src={image} alt={name} />
+//       </div>
+//     );
+//   };
+  
+
+
 // const CardPokemon = ({ pokemons }) => {
 //     return (
 //       <div>
@@ -47,3 +70,12 @@ const CardPokemon = ({ id, name,image, types, attack, defense}) => {
 
 
 export default CardPokemon;
+
+
+
+
+// const dispatch=useDispatch()
+    // if (!name){
+    //     window.alert('Pokemon Name not found')
+    //     dispatch(getAllPokemons())
+    //   }

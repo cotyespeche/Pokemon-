@@ -67,7 +67,7 @@ export default function rootReducer(state = initialState, action) {
             if (a.name < b.name) return -1;
             if (a.name > b.name) return 1;
             return 0;
-          } else if (action.payload === "Z-A") {
+          } else {
               if (a.name < b.name) return 1;
               if (a.name > b.name) return -1;
               return 0

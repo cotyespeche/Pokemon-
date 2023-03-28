@@ -21,9 +21,9 @@ export default function SearchBar() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(getPokemonByName(name));
-    console.log('pokemonnnnnnnnnnnnnnnnn', pokemon)
-    setTimeout(() => {},1000)
-    if (pokemon.length === 0) window.alert('Pokemon not found')
+    // console.log('pokemonnnnnnnnnnnnnnnnn', pokemon)
+    // setTimeout(() => {},1000)
+    
     setName(""); // cambia el valor delestado. el input actualiza su value (borra lo escrito)
   }
   const deleteSearch = () => {

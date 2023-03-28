@@ -12,7 +12,7 @@ import { deletePokemon } from '../../redux/action';
 
 
 const Home = () => {
-
+   const pokemon = useSelector(state => state.copyPokemons);
 const dispatch= useDispatch()
 
 
@@ -21,7 +21,7 @@ const dispatch= useDispatch()
     },[dispatch])
    
     // const PokemonList = () => {
-    //   const pokemon = useSelector(state => state.copyPokemons);
+   
 
     
       return (
@@ -30,11 +30,10 @@ const dispatch= useDispatch()
             <div className= {style.home}>
                        
               <AllCardsPokemons />
-              {/* <img className={style.img} src={img} alt="img"></img>  */}
-              {/* <button onClick={() => handleDelete(poke.id)}>Delete</button> */}
+              
             </div>
             
-       
+      
       )
   }
 

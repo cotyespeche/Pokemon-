@@ -1,26 +1,36 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 // import { getAllPokemons } from '../../redux/action';
 import CardPokemon from "../CardPokemon/CardPokemon";
 import gif from "../../img/Loading.gif";
 import style from "./AllCardsPokemons.module.css";
+import { useHistory } from "react-router-dom";
+import { getAllPokemons } from "../../redux/action";
+// import { getAllPokemons } from "../../redux/action";
 
 const AllCardsPokemons = () => {
   // const dispatch= useDispatch
+  const history= useHistory()
+  const dispatch= useDispatch()
 
 
 
   const pokemons = useSelector((state) => state.copyPokemons);
-
+  console.log("el componente se re-monta", pokemons)
+ 
+   
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000); //  cantidad de tiempo que se muestre el GIF
     return () => clearTimeout(timer);
   }, []);
+
+  
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);

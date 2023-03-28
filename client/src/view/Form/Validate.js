@@ -17,7 +17,7 @@ const validate = (inputs) => {
 
     if (!inputs.life) errors.life = " Life field is required ";
     else if (!regexNumber.test(inputs.life)) errors.life = " Life must be a number ";
-    else if (inputs.life > 70) errors.life = " Life value can't be above 70 ";
+
 
     if (!inputs.attack) errors.attack = " Attack field is required ";
     else if (!regexNumber.test(inputs.attack)) errors.attack = " Attack must be a number ";

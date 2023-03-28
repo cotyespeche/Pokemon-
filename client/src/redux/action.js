@@ -75,13 +75,10 @@ export const cleanPokemonDetail = () => {
 
 export const getPokemonByName = (name) => {
   return async (dispatch) => {
-    try {
+  
       dispatch({type: GET_POKEMON_BY_NAME, payload: name});
-    } catch (error) {
-      console.error(error);
-      alert(`No pokemon found with the name ${name}`)
-    }
   }
+
 }
 
 
