@@ -31,17 +31,11 @@ const Form = () => {
   });
   // const [showDefaultImage, setShowDefaultImage] = useState(false);
 
-  const [errors, setErrors] = useState({});
-  //   name: "",
-  //   image: "",
-  //   life: "",
-  //   attack: "",
-  //   defense: "",
-  //   speed: "",
-  //   height: "",
-  //   weight: "",
-  //   types: "",
-
+  const [errors, setErrors] = useState({  // declara y actualiza estados 
+    
+  });
+ 
+//actualiza los valores del formulario y valida los datos
   const handleInputChange = (event) => {
     // event.preventDefault()
     setForm({
@@ -50,29 +44,23 @@ const Form = () => {
     });
     setErrors(validate({ ...form, [event.target.name]: event.target.value }));
   };
+
   const handleSelect = (event) => {
     setForm({
       ...form,
-      types: [...form.types, event.target.value],
+      types: [...form.types, event.target.value], // crea una copi y se agreg el nuevo valor selesccionado
     });
   };
-
+ 
+  
   
 
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(
       postPokemon(form))
-    //     {
-    //     ...form,
-    //     image:
-    //       form.image === ""
-    //         ? "https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png"
-    //         : form.image,
-    //   })
-
     alert("Your pokémon has been created");
-    setForm({
+    setForm({ // resetear el estado del formulario a su estado inicial
       name: "",
       image: "",
       life: "",
@@ -93,6 +81,7 @@ const Form = () => {
       <h1 className={style.inputTitulo}>FORM TO CREATE POKEMON</h1>
 
       <form onSubmit={(event) => handleSubmit(event)}>
+
         <button className={style.btn1} onClick={handleHistory}>
           Back To Home
         </button>
@@ -108,7 +97,9 @@ const Form = () => {
           value={form.name}
           className={style.inputName}
         ></input>
-        {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+        <div style={{ marginLeft: '100px', textAlign: 'center' }}>
+          {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+        </div>
 
         <br />
 
@@ -124,7 +115,9 @@ const Form = () => {
         //   placeholder="URL de imagen"
           className={style.inputName}
         ></input>
+          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
         {errors.image && <p style={{ color: "red" }}>{errors.image}</p>}
+        </div>
         <br />
 
         <label htmlFor="life" className={style.label}>
@@ -137,12 +130,12 @@ const Form = () => {
           value={form.life}
           className={style.inputName}
         ></input>
+          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
         {errors.life && <p style={{ color: "red" }}>{errors.life}</p>}
+        </div>
         <br />
 
-        <label htmlFor="attack" className={style.label}>
-          Attack
-        </label>
+        <label htmlFor="attack" className={style.label}>Attack</label>
         <input
           name="attack"
           type="number"
@@ -150,7 +143,9 @@ const Form = () => {
           value={form.attack}
           className={style.inputName}
         ></input>
+          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
         {errors.attack && <p style={{ color: "red" }}>{errors.attack}</p>}
+        </div>
         <br />
 
         <label htmlFor="defense" className={style.label}>
@@ -163,7 +158,9 @@ const Form = () => {
           value={form.defense}
           className={style.inputName}
         ></input>
+          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
         {errors.defense && <p style={{ color: "red" }}>{errors.defense}</p>}
+        </div>
         <br />
 
         <label htmlFor="speed" className={style.label}>
@@ -176,7 +173,9 @@ const Form = () => {
           value={form.speed}
           className={style.inputName}
         ></input>
+          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
         {errors.speed && <p style={{ color: "red" }}>{errors.speed}</p>}
+        </div>
         <br />
 
         <label htmlFor="height" className={style.label}>
@@ -189,7 +188,9 @@ const Form = () => {
           value={form.height}
           className={style.inputName}
         ></input>
+          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
         {errors.height && <p style={{ color: "red" }}>{errors.height}</p>}
+        </div>
         <br />
 
         <label htmlFor="weight" className={style.label}>
@@ -202,7 +203,9 @@ const Form = () => {
           value={form.weight}
           className={style.inputName}
         ></input>
+          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
         {errors.weight && <p style={{ color: "red" }}>{errors.weight}</p>}
+        </div>
         <br />
         <select
           className={style.selectT}
@@ -213,6 +216,10 @@ const Form = () => {
           ))}
         </select>
         <div>{form.types.map((seleccionado) => seleccionado + " ")}</div>
+        
+
+ 
+
 
         <button
           type="submit"

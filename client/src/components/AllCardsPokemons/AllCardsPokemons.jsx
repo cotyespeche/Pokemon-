@@ -9,13 +9,16 @@ import style from "./AllCardsPokemons.module.css";
 
 const AllCardsPokemons = () => {
   // const dispatch= useDispatch
+
+
+
   const pokemons = useSelector((state) => state.copyPokemons);
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); //  cantidad de tiempo que se muestre el GIF
+    }, 1000); //  cantidad de tiempo que se muestre el GIF
     return () => clearTimeout(timer);
   }, []);
 
@@ -48,6 +51,7 @@ const AllCardsPokemons = () => {
   });
 
   return (
+   
     <div>
       <div className={style.AllCards}>
         {pokemons.length > 0 ? (
@@ -58,6 +62,8 @@ const AllCardsPokemons = () => {
               name={element?.name}
               image={element?.image}
               types={element?.types}
+              attack={element?.attack}
+              defense={element?.defense} 
             />
           ))
         ) : (
@@ -90,6 +96,7 @@ const AllCardsPokemons = () => {
     </div>
   );
 };
+
 
 export default AllCardsPokemons;
 

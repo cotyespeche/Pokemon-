@@ -37,7 +37,7 @@
 
 .input::placeholder {
   font-size: 15px;
-  color: rgba(220, 213, 213, 0.753);
+  color: rgb(8, 7, 7);
 
 }
 .input:hover{

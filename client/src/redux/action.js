@@ -9,10 +9,16 @@ import {
   GET_ALL_TYPES,
   FILTER_BY_TYPE,
   FILTER_BY_SOURCE,
-  POST_POKEMON
+  POST_POKEMON,
+  DELETE_POKEMON,
+  ORDER_BY_DEFENSE,
+  GET_POKEMON_ERROR
 } from "./actionType";
 
+
 import axios from "axios";
+
+
 
 //////////////////////////////////// GET ALL POKEMONS ///////////////////////////////////////////////////
 export const getAllPokemons = () => {
@@ -66,23 +72,18 @@ export const cleanPokemonDetail = () => {
 };
 
 ///////////////////////////////////////// BY NAME /////////////////////////////////////////////////////////
+
 export const getPokemonByName = (name) => {
-  return async function (dispatch) {
+  return async (dispatch) => {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/pokemons?name=${name}`
-      );
-      console.log("aaaaaaaaaaaaaaaaaaaaaa", response);
-      // const pedido= response.data
-      dispatch({
-        type: GET_POKEMON_BY_NAME,
-        payload: response.data,
-      });
+      dispatch({type: GET_POKEMON_BY_NAME, payload: name});
     } catch (error) {
-      window.alert("Pokemon not found!");
+      console.error(error);
+      alert(`No pokemon found with the name ${name}`)
     }
-  };
-};
+  }
+}
+
 
 export const deleteState = () => {
   return { type: DELETE_STATE };
@@ -103,6 +104,14 @@ export const orderByAttack = (payload) => {
     payload,
   };
 };
+
+
+export const orderByDefense = (payload) => {
+  return {
+  type: ORDER_BY_DEFENSE,
+  payload,
+  }
+}
 
 ///////////////////////////////////////// GET ALL TYPES ////////////////////////////////////////////////////
 export const getAllTypes = () => {
@@ -137,3 +146,54 @@ export const postPokemon= (form) => {
     
   }
 }
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+export const deletePokemon= (id) => async(dispatch)=>{
+  try{
+    await fetch(`http://localhost:3001/pokemons/delete/${id}`)
+    dispatch({type: DELETE_POKEMON, payload: id})
+  }catch(error){
+    console.error(error);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const getPokemonByName = (name) => {
+//   return async function (dispatch) {
+//     try {
+//       const response = await axios.get(
+//         `http://localhost:3001/pokemons?name=${name}`
+//       );
+//       console.log("aaaaaaaaaaaaaaaaaaaaaa", response);
+//       // const pedido= response.data
+//       dispatch({
+//         type: GET_POKEMON_BY_NAME,
+//         payload: response.data,
+//       });
+//     } catch (error) {
+//       window.alert("Pokemon not found!");
+//     }
+//   };
+// };

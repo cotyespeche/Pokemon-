@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from './CardPokemon.module.css'
 
 
-const CardPokemon = ({ id, name,image, types }) => {
+const CardPokemon = ({ id, name,image, types, attack, defense}) => {
     return (
        
         <div className= {style.card}>
@@ -11,6 +11,8 @@ const CardPokemon = ({ id, name,image, types }) => {
             <Link to={`/detail/${id}`}className={style.link}> 
                 <h1 className={style.name}>Name: {name}</h1>
                 <p className={style.types}>Types: {types}</p>
+                <p>Atacck: {attack}</p>
+                <p>Defense: {defense}</p>
             </Link>
             <img className={style.img} src={image} alt={name} />
 
@@ -19,4 +21,29 @@ const CardPokemon = ({ id, name,image, types }) => {
         
     )
 }
+// const CardPokemon = ({ pokemons }) => {
+//     return (
+//       <div>
+//         {pokemons.length > 0 ? (
+//           <div>
+//             {pokemons.map((pokemon) => (
+//               <CardPokemon
+//                 key={pokemon.id}
+//                 id={pokemon.id}
+//                 name={pokemon.name}
+//                 image={pokemon.image}
+//                 types={pokemon.types}
+//                 attack={pokemon.attack}
+//                 defense={pokemon.defense}
+//               />
+//             ))}
+//           </div>
+//         ) : (
+//           <p>No se encontraron Pokémon</p>
+//         )}
+//       </div>
+//     );
+//   };
+
+
 export default CardPokemon;

@@ -1,4 +1,4 @@
-import { orderByName, orderByAttack, filterBySource, filterByType, getAllTypes } from '../../redux/action';
+import { orderByName, orderByAttack, filterBySource, filterByType, getAllTypes, orderByDefense } from '../../redux/action';
 import { useDispatch } from 'react-redux'
 import styles from './Filter.module.css'
 import { useState, useSelector } from 'react';
@@ -22,6 +22,7 @@ function Filter () {
         e.target.name === "orderByAttack" && dispatch(orderByAttack(e.target.value))
         e.target.name === "filterByType" && dispatch(filterByType(e.target.value))
         e.target.name === "filterBySource" && dispatch(filterBySource(e.target.value))
+        e.target.name ===  "orderByDefense" && dispatch(orderByDefense(e.target.value))
       
 
     }
@@ -55,8 +56,8 @@ function Filter () {
                  <select className={styles.selectList} name="orderByAttack" defaultValue={"default"} onChange={handleChange}> 
                      <option value="default" disabled>ORDER BY ATTACK</option> 
                      {/* <option value="All">All</option>  */}
-                     <option value="+ Attack">- Attack</option>
-                    <option value="- Attack">+ Attack</option>
+                     <option value="- Attack">- Attack</option>
+                    <option value="+ Attack">+ Attack</option>
                    
                 </select>
 
@@ -69,7 +70,13 @@ function Filter () {
                    
                 </select>
                
-
+                <select className={styles.selectList} name= 'orderByDefense' defaultValue={"default"} onChange={handleChange}>
+                    <option value="default" disabled>BY DEFENSE</option>
+                    <option value="-defense">-defense</option>
+                    <option value="+defense">+defense</option>
+                   
+                </select>
+               
 
                 {/* <select name="filterByType" defaultValue="Default" onChange={(event) => handleTypes(event)} >
                         <option key="Types" value="" hidden>Filter By Types</option>
