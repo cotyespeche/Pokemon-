@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import style from './CardPokemon.module.css'
-import { getAllPokemons } from "../../redux/action";
-import { useDispatch } from "react-redux";
+
 
 
 const CardPokemon = ({ id, name,image, types, attack, defense}) => {
@@ -25,6 +24,11 @@ const CardPokemon = ({ id, name,image, types, attack, defense}) => {
         
     )
 }
+
+
+
+
+
 
 // const CardPokemon = ({ id, name, image, types, attack, defense }) => {
 //     return (

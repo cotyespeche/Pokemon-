@@ -12,14 +12,11 @@ const NavBar = () => {
           <button className={styles.b1}> Api Pokemon </button>
         </Link>
 
-        {/* <Link to="/Home">
-                <button> Home </button>
-                </Link> */}
-
         <Link to="/form">
           <button className={styles.b2}> Create Pokemon </button>
         </Link>
       </nav>
+
       <SearchBar className={styles.searchBar} />
       <Filter />
     </div>

@@ -96,15 +96,21 @@ const { Pokemon, Type } = require ('../db')
 
     
     // ------------------------------- concateno
+    async function apiDb() {
 
-        async function apiDb() {
+      let apiPokemons = await apiInfo();
+      let dbPokemons = await dbInfo(); 
+
+      return [...dbPokemons,...apiPokemons];
+  };
+        // async function apiDb() {
           
-            let apiPokemons = await apiInfo();
-            let dbPokemons = await dbInfo(); 
-            let concat = dbPokemons.concat(apiPokemons);
-            if (!concat.length) throw Error ("no pokemon found")
-            return concat;
-        };
+        //     let apiPokemons = await apiInfo();
+        //     let dbPokemons = await dbInfo(); 
+        //     let concat = dbPokemons.concat(apiPokemons);
+        //     if (!concat.length) throw Error ("no pokemon found")
+        //     return concat;
+        // };
         
         //   return [...dbPokemons,...apiPokemons];
       

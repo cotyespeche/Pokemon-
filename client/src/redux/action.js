@@ -31,7 +31,7 @@ export const getAllPokemons = () => {
         payload: pedido,
       });
     } catch (error) {
-      window.alert("Not found!");
+      window.alert("Not found Pokemons!");
     }
   };
 };

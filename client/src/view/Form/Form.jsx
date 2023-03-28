@@ -216,6 +216,7 @@ const Form = () => {
           ))}
         </select>
         <div>{form.types.map((seleccionado) => seleccionado + " ")}</div>
+        {errors.types && <p style={{ color: "red" }}>{errors.types}</p>}
         
         
 

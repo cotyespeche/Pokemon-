@@ -60,19 +60,23 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case ORDER_BY_NAME:
+      console.log('eeeeeeeeeee', state.copyPokemons)
       return {
         ...state,
-        copyPokemons: [...state.copyPokemons].sort((a, b) => { // hago una copia del array para poder modificarlo y no perder el original
-          if (action.payload === "A-Z") {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
-            return 0;
-          } else {
-              if (a.name < b.name) return 1;
-              if (a.name > b.name) return -1;
-              return 0
-          }
-        })
+        copyPokemons: (action.payload === 'A-Z')
+                    ? [...state.copyPokemons.sort((a, b) => a.name.localeCompare(b.name))]
+                    : [...state.copyPokemons.sort((a, b) => b.name.localeCompare(a.name))]
+        // copyPokemons: [...state.copyPokemons].sort((a, b) => { // hago una copia del array para poder modificarlo y no perder el original
+        //   if (action.payload === "A-Z") {
+        //     if (a.name < b.name) return -1;
+        //     if (a.name > b.name) return 1;
+        //     return 0;
+        //   } else {
+        //       if (a.name < b.name) return 1;
+        //       if (a.name > b.name) return -1;
+        //       return 0
+        //   }
+        // })
       }
          
 

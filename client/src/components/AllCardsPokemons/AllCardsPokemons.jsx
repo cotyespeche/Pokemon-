@@ -1,46 +1,31 @@
 import React from "react";
-
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-// import { getAllPokemons } from '../../redux/action';
 import CardPokemon from "../CardPokemon/CardPokemon";
 import gif from "../../img/Loading.gif";
 import style from "./AllCardsPokemons.module.css";
-import { useHistory } from "react-router-dom";
-import { getAllPokemons } from "../../redux/action";
-// import { getAllPokemons } from "../../redux/action";
 
 const AllCardsPokemons = () => {
-  // const dispatch= useDispatch
-  const history= useHistory()
-  const dispatch= useDispatch()
-
-
-
   const pokemons = useSelector((state) => state.copyPokemons);
-  console.log("el componente se re-monta", pokemons)
- 
-   
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); //  cantidad de tiempo que se muestre el GIF
+    }, 3000); //  cantidad de tiempo que se muestre el GIF
     return () => clearTimeout(timer);
   }, []);
 
-  
-
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1); //guarda el número de la página actual que se está mostrando en la interfaz y lo inicializa en 1.
   const [itemsPerPage, setItemsPerPage] = useState(12);
-  const pages = [];
+  const pages = []; //se van agregando los números de página correspondientes a medida que se itera sobre el total de elementos dividiéndolo por el número de elementos por página.
   for (let i = 1; i <= Math.ceil(pokemons.length / itemsPerPage); i++) {
-    pages.push(i);
+    pages.push(i); //calculará el número total de páginas que necesitamos para mostrar todos los elementos en el array de pokemons.
   }
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = pokemons.slice(indexOfFirstItem, indexOfLastItem);
+  const indexOfLastItem = currentPage * itemsPerPage; //1*12=12
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage; // 12-12=0
+  const currentItems = pokemons.slice(indexOfFirstItem, indexOfLastItem); //(0, 12) devuelve un nuevo array que contiene los primeros 12 elementos de pokemons, que se muestran en la página actual.
 
   const handleClick = (event) => {
     setCurrentPage(Number(event.target.id));
@@ -48,6 +33,7 @@ const AllCardsPokemons = () => {
 
   const renderPageNumbers = pages.map((number) => {
     const activePage = currentPage;
+
     return (
       <button
         className={`${style.listItem} ${activePage === number && style.active}`} // Agregamos la clase "active" si el número actual de página es igual al número de la página actual
@@ -61,8 +47,10 @@ const AllCardsPokemons = () => {
   });
 
   return (
-   
     <div>
+
+      {!pokemons.length && <h3>No se hallaron resultados.</h3>}
+      
       <div className={style.AllCards}>
         {pokemons.length > 0 ? (
           currentItems.map((element) => (
@@ -73,7 +61,7 @@ const AllCardsPokemons = () => {
               image={element?.image}
               types={element?.types}
               attack={element?.attack}
-              defense={element?.defense} 
+              defense={element?.defense}
             />
           ))
         ) : (
@@ -83,8 +71,8 @@ const AllCardsPokemons = () => {
           </div>
         )}
       </div>
-     
-            <div className={style.pagination}>
+
+      <div className={style.pagination}>
         <button
           className={style.prevButton}
           onClick={() => setCurrentPage(currentPage - 1)}
@@ -92,9 +80,11 @@ const AllCardsPokemons = () => {
         >
           ◀
         </button>
+
         <ul className={`${style.unorganizedList} ${style.paginationContainer}`}>
           {renderPageNumbers}
         </ul>
+
         <button
           className={style.nextButton}
           onClick={() => setCurrentPage(currentPage + 1)}
@@ -102,17 +92,25 @@ const AllCardsPokemons = () => {
         >
           ▶
         </button>
-      </div> 
+      </div>
     </div>
   );
 };
 
-
 export default AllCardsPokemons;
 
-// Al botón "Prev" se le asigna la función handlePrevClick, que disminuye en 1 el valor de currentPage si este es mayor a 1. Al botón "Next" se le asigna la función handleNextClick, que aumenta en 1 el valor de currentPage si este es menor al número de páginas disponibles (pages.length).
 
-// También se agrega la propiedad disabled a cada botón, que se encarga de desactivar el botón si no se puede navegar a la página correspondiente (por ejemplo, si se está en la primera página y se presiona el botón "Prev", este queda desactivado).
+
+
+
+
+
+
+
+
+
+
+
 
 // id: pokemon.id,
 // name: pokemon.name,
@@ -124,30 +122,3 @@ export default AllCardsPokemons;
 // height: pokemon.height,
 // weight: pokemon.weight,
 // types: pokemon.types.map(elem => elem.type.name)
-
-//     <div className={style.ulContainer}>
-//     <ul className={style.unorganizedList}>{renderPageNumbers}</ul>
-// </div>
-
-// return (
-//     <div>
-
-//     <div className={style.AllCards}>
-
-//     {/* {pokemons.length > 0 ? pokemons.map(element=>  */}
-//     {pokemons.length > 0 ? currentItems.map(element=>
-//     <CardPokemon
-//     key= {element?.id}
-//     id= {element?.id}
-//     name= {element?.name}
-//     image= {element?.image}
-//     types= {element?.types}
-//     />
-
-//     )
-//     : <h1>Loading...</h1>}
-//    </div>
-//    <ul className={style.unorganizedList}>{renderPageNumbers}</ul>
-//     </div>
-// )
-// const currentPageNumber = currentPage;

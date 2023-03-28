@@ -1,32 +1,25 @@
-import './App.css';
+import "./App.css";
 
-import { Route, Switch, useLocation } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar'
-import Home from './view/Home/Home'
-import LandingPage from './view/LandingPage/LandingPage'
-import Detail from './view/Detail/Detail'
-import Form from './view/Form/Form'
-
+import { Route, Switch, useLocation } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
+import Home from "./view/Home/Home";
+import LandingPage from "./view/LandingPage/LandingPage";
+import Detail from "./view/Detail/Detail";
+import Form from "./view/Form/Form";
 
 function App() {
-  const location=useLocation();
-
+  const location = useLocation();
 
   return (
     <div className="App">
-      {/* <h1>Henry Pokemon</h1> */}
-      {/* {location.pathname !== "/" && <NavBar/>} */}
-     
-      {location.pathname !== "/" && !location.pathname.includes("/detail/") && location.pathname !== "/form" && <NavBar/>}
+      {location.pathname === "/home" && <NavBar />}
 
-
-   <Switch>
-  <Route exact path="/" component={LandingPage} />
-  <Route exact path="/home" component={Home} />
-  <Route exact path="/form" component={Form} />
-  <Route exact path="/detail/:id" component={Detail} />
-  </Switch>
-
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/form" component={Form} />
+        <Route exact path="/detail/:id" component={Detail} />
+      </Switch>
     </div>
   );
 }

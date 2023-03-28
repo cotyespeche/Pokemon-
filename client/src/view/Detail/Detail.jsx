@@ -1,110 +1,94 @@
-import { getPokemonDetail,cleanPokemonDetail } from "../../redux/action"
-import React, { useState } from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import style from './Detail.module.css'
+import { getPokemonDetail, cleanPokemonDetail } from "../../redux/action";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import style from "./Detail.module.css";
 import { Link, useParams } from "react-router-dom";
-import gif from '../../img/Loading.gif'
-
-
-
+import gif from "../../img/Loading.gif";
 
 const DetailPokemon = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const pokemon = useSelector((state) => state.pokemonDetail);
 
-    const { id } = useParams()
-    const dispatch= useDispatch()
-    const pokemon = useSelector(state => state.pokemonDetail)
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    dispatch(getPokemonDetail(id));
+    return () => dispatch(cleanPokemonDetail());
+  }, [dispatch, id]);
 
-    
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-      dispatch(getPokemonDetail(id))
-      return () => dispatch(cleanPokemonDetail())
-  }, [dispatch, id])
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); //  cantidad de tiempo que se muestre el GIF
+    return () => clearTimeout(timer);
+  }, []);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, 3000); //  cantidad de tiempo que se muestre el GIF
-        return () => clearTimeout(timer);
-      }, []);
-
-  
-   
-      // Verifica si todas las variables de estado están establecidas
-      if (!pokemon.name || !pokemon.id || !pokemon.life || !pokemon.image || !pokemon.attack || !pokemon.defense || !pokemon.speed || !pokemon.height || !pokemon.weight || !pokemon.types) {
-        return (
-          <div className={style.loading}>
-          <div>
-            <img src={gif} alt="Loading..." className={style.gif} />
-          </div>
-          </div>
-        );
-      }
-
-
-
-
+  // Verifica si todas las variables de estado están establecidas
+  if (
+    !pokemon.name ||
+    !pokemon.id ||
+    !pokemon.life ||
+    !pokemon.image ||
+    !pokemon.attack ||
+    !pokemon.defense ||
+    !pokemon.speed ||
+    !pokemon.height ||
+    !pokemon.weight ||
+    !pokemon.types
+  ) {
     return (
-      // <>
-      //       {pokemon && (
-          <div>
-            <div className={style.container}>
-                <Link to="/home">
-                  <button className={style.buttonBack}>BACK</button>
-                </Link>
-                {/* {pokemon.length > 0 ? */}
+      <div className={style.loading}>
+        <div>
+          <img src={gif} alt="Loading..." className={style.gif} />
+        </div>
+      </div>
+    );
+  }
 
-                  <div className={style.cardDetail}>   
-                       <img className={style.img} src={pokemon?.image} alt={pokemon.name} />
+  return (
+    // <>
+    //       {pokemon && (
+    <div>
+      <div className={style.container}>
+        <Link to="/home">
+          <button className={style.buttonBack}>BACK</button>
+        </Link>
+        {/* {pokemon.length > 0 ? */}
 
-                        <div className={style.info}>
+        <div className={style.cardDetail}>
+          <img className={style.img} src={pokemon?.image} alt={pokemon.name} />
 
-                            <h3 className={style.name}>Name: {pokemon?.name}</h3>
-                            <h4>Id: {pokemon?.id}</h4>
-                            <h4>Life: {pokemon?.life}</h4>
-                            <h4>Attack: {pokemon?.attack }</h4>
-                            <h4>Defense: {pokemon?.defense }</h4>
-                            <h4>Speed: {pokemon?.speed }</h4>
-                            <h4>Height: {pokemon?.height}</h4>
-                            <h4>Weight: {pokemon?.weight }</h4>
-                            <h4>Types: {pokemon?.types }</h4>
+          <div className={style.info}>
+            <h3 className={style.name}>Name: {pokemon?.name}</h3>
+            <h4>Id: {pokemon?.id}</h4>
+            <h4>Life: {pokemon?.life}</h4>
+            <h4>Attack: {pokemon?.attack}</h4>
+            <h4>Defense: {pokemon?.defense}</h4>
+            <h4>Speed: {pokemon?.speed}</h4>
+            <h4>Height: {pokemon?.height}</h4>
+            <h4>Weight: {pokemon?.weight}</h4>
+            <h4>Types: {pokemon?.types}</h4>
 
- 
-                      {/* operador de fusion nulo o "Nullish coalescing operator" en inglés.  */}
-                        </div>
-                        
-                  </div>
-             {/* :
+            {/* operador de fusion nulo o "Nullish coalescing operator" en inglés.  */}
+          </div>
+        </div>
+        {/* :
             <div class="loading">
             <img src={gif} alt="Loading..." />
            </div>
             }  */}
-      
-            </div>
+      </div>
+    </div>
+    //  )}
+    //   </>
+  );
+};
 
-           
-          </div>
-          //  )}
-          //   </>
-          ) 
-        }
-        
- export default DetailPokemon;
+export default DetailPokemon;
 
-
-
-
-
-
-
-
-
-
-
-
-
-  {/* {pokemon.length > 0 && (
+{
+  /* {pokemon.length > 0 && (
 
     <div className={style.cardDetail}>
 
@@ -117,7 +101,9 @@ const DetailPokemon = () => {
       <h4>Speed: {pokemon[0]?.speed ?? 'Data not found'}</h4>
       <h4>Height: {pokemon[0]?.height ?? 'Data not found'}</h4>
       <h4>Weight: {pokemon[0]?.weight ?? 'Data not found'}</h4>
-      <h4>Types: {pokemon[0]?.types ?? 'Data not found'}</h4> */}
+      <h4>Types: {pokemon[0]?.types ?? 'Data not found'}</h4> */
+}
 
-
-       {/* )} */}
+{
+  /* )} */
+}
