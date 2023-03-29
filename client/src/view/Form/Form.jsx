@@ -216,11 +216,9 @@ const Form = () => {
           ))}
         </select>
         <div>{form.types.map((seleccionado) => seleccionado + " ")}</div>
+        <div style={{ marginLeft: '100px', textAlign: 'center' }}></div>
         {errors.types && <p style={{ color: "red" }}>{errors.types}</p>}
         
-        
-
- 
         <button
           type="submit"
           //  onClick={handleInputChange}

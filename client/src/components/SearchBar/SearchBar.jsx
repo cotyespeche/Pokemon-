@@ -8,8 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
-  const pokemon = useSelector(state => state.copyPokemons)
-;
+ 
 
   const [name, setName] = useState("");
  
@@ -22,10 +21,9 @@ export default function SearchBar() {
     e.preventDefault();
     dispatch(getPokemonByName(name));
     // console.log('pokemonnnnnnnnnnnnnnnnn', pokemon)
-    // setTimeout(() => {},1000)
-    
-    setName(""); // cambia el valor delestado. el input actualiza su value (borra lo escrito)
+    setName(""); 
   }
+
   const deleteSearch = () => {
     dispatch(deleteState());
     dispatch(getAllPokemons());
@@ -42,7 +40,7 @@ export default function SearchBar() {
         placeholder="Search..."
         value={name} // es mi estado
         onChange={(e) => handleInputChange(e)} // cada vez que se escribe una letra cambia ...
-        // onKeyDown={handleKeyDown}
+        
       />
       <button
         className={style.button}

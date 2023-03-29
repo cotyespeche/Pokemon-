@@ -4,7 +4,7 @@ import style from './CardPokemon.module.css'
 
 
 
-const CardPokemon = ({ id, name,image, types, attack, defense}) => {
+const CardPokemon = ({ id, name,image, types }) => {
     
 
     return (
@@ -14,8 +14,7 @@ const CardPokemon = ({ id, name,image, types, attack, defense}) => {
             <Link to={`/detail/${id}`}className={style.link}> 
                 <h1 className={style.name}>Name: {name}</h1>
                 <p className={style.types}>Types: {types}</p>
-                <p>Atacck: {attack}</p>
-                <p>Defense: {defense}</p>
+                
             </Link>
             <img className={style.img} src={image} alt={name} />
 

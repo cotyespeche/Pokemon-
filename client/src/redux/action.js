@@ -12,7 +12,7 @@ import {
   POST_POKEMON,
   DELETE_POKEMON,
   ORDER_BY_DEFENSE,
-  GET_POKEMON_ERROR
+ 
 } from "./actionType";
 
 
@@ -21,6 +21,7 @@ import axios from "axios";
 
 
 //////////////////////////////////// GET ALL POKEMONS ///////////////////////////////////////////////////
+
 export const getAllPokemons = () => {
   return async function (dispatch) {
     try {
@@ -31,7 +32,7 @@ export const getAllPokemons = () => {
         payload: pedido,
       });
     } catch (error) {
-      window.alert("Not found Pokemons!");
+      window.alert("Pokemons not found !");
     }
   };
 };
@@ -40,32 +41,15 @@ export const getAllPokemons = () => {
 export const getPokemonDetail = (id) => {
   return async function (dispatch) {
    
-      
-
       const {data}= await axios.get(`http://localhost:3001/pokemons/${id}`)
-      // const pedido= response.data
-      console.log('eeeeeeeeeeeeeeeeeeeeee',data)
-      if (data.name) {
+  
         dispatch({
           type:GET_POKEMON_DETAIL,
           payload: data
       })
-      } else{
-        window.alert('data not found')
-      }
-      // console.log("pasoooooooooooooo");
-  
   };
 };
-// fetch(`http://localhost:3001/pokemons/${id}`)
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     if (data.name) {
-      //       dispatch({ type: GET_POKEMON_DETAIL, payload: data });
-      //     } else {
-      //       throw Error("Data not found");
-      //     }
-      //   });
+
 
 export const cleanPokemonDetail = () => {
   return { type: CLEAN_POKEMON_DETAIL };
@@ -78,7 +62,6 @@ export const getPokemonByName = (name) => {
   
       dispatch({type: GET_POKEMON_BY_NAME, payload: name});
   }
-
 }
 
 
@@ -103,12 +86,7 @@ export const orderByAttack = (payload) => {
 };
 
 
-export const orderByDefense = (payload) => {
-  return {
-  type: ORDER_BY_DEFENSE,
-  payload,
-  }
-}
+
 
 ///////////////////////////////////////// GET ALL TYPES ////////////////////////////////////////////////////
 export const getAllTypes = () => {
@@ -148,14 +126,14 @@ export const postPokemon= (form) => {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-export const deletePokemon= (id) => async(dispatch)=>{
-  try{
-    await fetch(`http://localhost:3001/pokemons/delete/${id}`)
-    dispatch({type: DELETE_POKEMON, payload: id})
-  }catch(error){
-    console.error(error);
-  }
-};
+// export const deletePokemon= (id) => async(dispatch)=>{
+//   try{
+//     await fetch(`http://localhost:3001/pokemons/delete/${id}`)
+//     dispatch({type: DELETE_POKEMON, payload: id})
+//   }catch(error){
+//     console.error(error);
+//   }
+// };
 
 
 

@@ -48,9 +48,8 @@ const AllCardsPokemons = () => {
 
   return (
     <div>
-
-      {!pokemons.length && <h3>No se hallaron resultados.</h3>}
       
+
       <div className={style.AllCards}>
         {pokemons.length > 0 ? (
           currentItems.map((element) => (
@@ -60,14 +59,14 @@ const AllCardsPokemons = () => {
               name={element?.name}
               image={element?.image}
               types={element?.types}
-              attack={element?.attack}
-              defense={element?.defense}
+            
             />
           ))
         ) : (
-          //   <h1>Loading...</h1>
+          
           <div class="loading">
             <img src={gif} alt="Loading..." />
+            {/* {!pokemons.length && <h3>No se hallaron resultados.</h3>} */}
           </div>
         )}
       </div>

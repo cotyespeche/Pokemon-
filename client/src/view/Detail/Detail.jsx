@@ -20,7 +20,7 @@ const DetailPokemon = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); //  cantidad de tiempo que se muestre el GIF
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -47,14 +47,11 @@ const DetailPokemon = () => {
   }
 
   return (
-    // <>
-    //       {pokemon && (
     <div>
       <div className={style.container}>
         <Link to="/home">
           <button className={style.buttonBack}>BACK</button>
         </Link>
-        {/* {pokemon.length > 0 ? */}
 
         <div className={style.cardDetail}>
           <img className={style.img} src={pokemon?.image} alt={pokemon.name} />
@@ -69,23 +66,26 @@ const DetailPokemon = () => {
             <h4>Height: {pokemon?.height}</h4>
             <h4>Weight: {pokemon?.weight}</h4>
             <h4>Types: {pokemon?.types}</h4>
-
-            {/* operador de fusion nulo o "Nullish coalescing operator" en inglés.  */}
           </div>
         </div>
-        {/* :
-            <div class="loading">
-            <img src={gif} alt="Loading..." />
-           </div>
-            }  */}
       </div>
     </div>
-    //  )}
-    //   </>
   );
 };
 
 export default DetailPokemon;
+
+
+
+
+
+
+
+
+
+
+
+
 
 {
   /* {pokemon.length > 0 && (

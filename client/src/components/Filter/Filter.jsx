@@ -1,44 +1,22 @@
-import { orderByName, orderByAttack, filterBySource, filterByType, getAllTypes, orderByDefense } from '../../redux/action';
+import { orderByName, orderByAttack, filterBySource, filterByType } from '../../redux/action';
 import { useDispatch } from 'react-redux'
 import styles from './Filter.module.css'
-import { useState, useSelector } from 'react';
-// import { useHistory } from 'react-router-dom';
-// import { useEffect } from 'react';
-
-
-
 
 
 
 function Filter () {
-
-
-// const [selectedOption, setSelectedOption]= useState('default')
+    
     const dispatch= useDispatch()
     
-
     const handleChange = (e) => {
         e.target.name === "orderByName" && dispatch(orderByName(e.target.value))
         e.target.name === "orderByAttack" && dispatch(orderByAttack(e.target.value))
         e.target.name === "filterByType" && dispatch(filterByType(e.target.value))
         e.target.name === "filterBySource" && dispatch(filterBySource(e.target.value))
-        e.target.name ===  "orderByDefense" && dispatch(orderByDefense(e.target.value))
-      
-
     }
-
-    // function handleByAttack(e) {
-    //     e.preventDefault();
-    //     dispatch(filterByType(e.target.value));
-    // //     history.push("/home")
-    //   }
+    // se verifica si el nombre del elemento que desencadenó el evento es "orderByName" a través de la propiedad "name" del objeto "e.target". Si el nombre coincide, se realiza una acción adicional.
     
-    // function handleTypes(e) {
-    //     e.preventDefault();
-    //     dispatch(filterByType(e.target.value));
-    // //     history.push("/home")
-    //   }
-
+    
     return (
     
     <div className= {styles.container}>
@@ -48,8 +26,7 @@ function Filter () {
                     <option value="default" disabled>ORDER BY</option>
                     <option value="A-Z">A-Z</option>
                     <option value="Z-A">Z-A</option>
-                    {/* <option value="+ Attack">+ Attack</option>
-                    <option value="- Attack">- Attack</option> */}
+                   
                 </select>
 
 
@@ -69,16 +46,7 @@ function Filter () {
                     <option value="Db">Db</option>
                    
                 </select>
-               
-                <select className={styles.selectList} name= 'orderByDefense' defaultValue={"default"} onChange={handleChange}>
-                    <option value="default" disabled>BY DEFENSE</option>
-                    <option value="-defense">-defense</option>
-                    <option value="+defense">+defense</option>
-                   
-                </select>
-               
 
-               
                
                 <select className={styles.selectList} name="filterByType"  defaultValue={"default"}  onChange={handleChange}>
                     <option value="default" disabled>FILTER BY TYPE</option>
@@ -105,12 +73,9 @@ function Filter () {
                     <option key="electric" value="electric">Electric</option>
                 </select>
   
-
-
             </div>
     </div>
     )}
- 
  
  export default Filter;
 
@@ -121,3 +86,17 @@ function Filter () {
 
  
 
+// function handleByAttack(e) {
+    //     e.preventDefault();
+    //     dispatch(filterByType(e.target.value));
+    // //     history.push("/home")
+    //   }
+
+
+
+// const types = useSelector = ((state) => state.types)
+    // {types?.map((type, index) => (
+    //     <option key={index} value={`${type.name}`}>
+    //       {" "}
+    //       {type.name}{" "}
+   // </option>

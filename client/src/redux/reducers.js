@@ -22,13 +22,15 @@ const initialState = {
 };
 
 export default function rootReducer(state = initialState, action) {
+
   switch (action.type) {
+
     case GET_ALL_POKEMONS:
       console.log(action.payload);
       return {
         ...state,
         pokemons: action.payload,
-        copyPokemons: action.payload, // para tener un resplado de la copia que filtro
+        copyPokemons: action.payload, 
       };
 
     case GET_POKEMON_DETAIL:
@@ -60,24 +62,13 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case ORDER_BY_NAME:
-      console.log('eeeeeeeeeee', state.copyPokemons)
+      // console.log('eeeeeeeeeee', state.copyPokemons)
       return {
         ...state,
         copyPokemons: (action.payload === 'A-Z')
-                    ? [...state.copyPokemons.sort((a, b) => a.name.localeCompare(b.name))]
+                    ? [...state.copyPokemons.sort((a, b) => a.name.localeCompare(b.name))] // acs
                     : [...state.copyPokemons.sort((a, b) => b.name.localeCompare(a.name))]
-        // copyPokemons: [...state.copyPokemons].sort((a, b) => { // hago una copia del array para poder modificarlo y no perder el original
-        //   if (action.payload === "A-Z") {
-        //     if (a.name < b.name) return -1;
-        //     if (a.name > b.name) return 1;
-        //     return 0;
-        //   } else {
-        //       if (a.name < b.name) return 1;
-        //       if (a.name > b.name) return -1;
-        //       return 0
-        //   }
-        // })
-      }
+                  }
          
 
     case ORDER_BY_ATTACK:
@@ -92,22 +83,6 @@ export default function rootReducer(state = initialState, action) {
             if (a.attack < b.attack) return 1;
             if (a.attack > b.attack) return -1;
             return 0;
-          }
-        })
-      }
-
-      case ORDER_BY_DEFENSE: 
-      return {
-        ...state,
-        copyPokemons: [...state.copyPokemons].sort((a,b) => {
-          if (action.payload === "-defense")  {
-            if (a.defense < b.defense) return -1;
-            if (a.defense > b.defense) return 1;
-            return 0;
-          } else {
-            if (a.defense < b.defense) return 1;
-            if (a.defense > b.defense) return -1;
-            return 0
           }
         })
       }
@@ -131,21 +106,6 @@ export default function rootReducer(state = initialState, action) {
         copyPokemons: filtered,
       };
 
-    // case FILTER_BY_SOURCE:
-    //         let allPoke = state.pokemons;
-    //         if (action.payload !== "allPoke") {
-    //           allPoke = action.payload === "Api"
-    //           ? allPoke.filter((poke) => typeof poke.id === "number")
-    //           : allPoke.filter((poke) => typeof poke.id !== "number");
-    //         //     allPoke = action.payload === "Api"
-    //         //     ? allPoke.filter((poke) => !isNaN(poke.id)) // valor numerico 
-    //         //     : allPoke.filter((poke) => isNaN(poke.id));
-    //         // }
-    //         return {
-    //             ...state,
-    //             copyPokemons: [...allPoke],
-    //     };
-
 
     case FILTER_BY_SOURCE:
       let allPoke = state.pokemons;
@@ -168,12 +128,12 @@ export default function rootReducer(state = initialState, action) {
                 
             };
 
-            case DELETE_POKEMON:
-                const updatedPokemon = state.copyPokemons.filter(
-                  (poke) => poke.id !== action.payload
-                );
-                return {...state, 
-                  copyPokemons:updatedPokemon}
+// case DELETE_POKEMON:
+ //     const updatedPokemon = state.copyPokemons.filter(
+ //       (poke) => poke.id !== action.payload
+  //     );
+ //     return {...state, 
+ //       copyPokemons:updatedPokemon}
               
             
   

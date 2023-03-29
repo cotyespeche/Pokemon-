@@ -2,14 +2,12 @@ import React from "react";
 import AllCardsPokemons from "../../components/AllCardsPokemons/AllCardsPokemons";
 import { getAllPokemons } from "../../redux/action";
 import { useEffect } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import style from "./Home.module.css";
-// import img from '../../img/home.png'
-import { deletePokemon } from "../../redux/action";
+
 
 const Home = () => {
-  const pokemon = useSelector((state) => state.copyPokemons);
+  // const pokemon = useSelector((state) => state.copyPokemons);
   const dispatch = useDispatch();
 
   useEffect(() => {
