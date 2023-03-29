@@ -8,6 +8,7 @@ import style from "./Form.module.css";
 
 const Form = () => {
   const types = useSelector((state) => state.types);
+  const pokemon = useSelector((state) => state.pokemons)
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -35,11 +36,12 @@ const Form = () => {
  
 //actualiza los valores del formulario y valida los datos
   const handleInputChange = (event) => {
-    // event.preventDefault()
+    event.preventDefault()
     setForm({
       ...form,
       [event.target.name]: event.target.value,
     });
+    equal(form.name);
     setErrors(validate({ ...form, [event.target.name]: event.target.value })); //PREGUNTAR
   };
 
@@ -75,6 +77,16 @@ const Form = () => {
     history.push("/home");
   };
 
+  const equal = (name) => {
+    const equal = pokemon.find((pokemon) => pokemon.name === name);
+    if (equal) {
+      alert("pokemon alredy exist, Change the name");
+      setForm({
+        ...form,
+        name: "",
+      });
+    }
+  };
 
 
 
