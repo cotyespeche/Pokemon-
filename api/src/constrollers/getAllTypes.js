@@ -1,4 +1,4 @@
-const { Type } = require ('../db')
+const { Type, Pokemon } = require ('../db')
 const axios =require('axios')
 
 

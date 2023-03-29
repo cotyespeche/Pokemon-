@@ -3,7 +3,7 @@ const { Pokemon, Type } = require ('../db')
         const postPokemon = async (pokemon) => {
 
           const { name, image, life, attack, defense, speed, height, weight, types } = pokemon;
-           if (!name || !life || !attack || !defense || !types) throw new Error("Missing information");
+           if (!name || !image || !life || !attack || !defense || !types || !speed || !height || !weight) throw new Error("Missing information");
 
            let findedPoke = await Pokemon.findOne({ where: { name: name } });
             if (findedPoke) {

@@ -64,12 +64,13 @@ input {
 
 
 .label{
-  display: inline-block;
+display: inline-block;
 font-size: 18px;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 width: 100px;
 }
+
 
 .btn {
   background: #8d8e8bf5;
@@ -125,7 +126,7 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     cursor: pointer;
     border-radius: 6px;
     transition-duration: 0.2s;
-    margin-left: 130px;
+    margin-left: 30px;
     margin-top: 10px;
 }
 

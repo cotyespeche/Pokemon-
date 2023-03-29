@@ -27,10 +27,8 @@ const Form = () => {
     height: "",
     weight: "",
     types: [],
-    // selected: '',
   });
-  // const [showDefaultImage, setShowDefaultImage] = useState(false);
-
+  
   const [errors, setErrors] = useState({  // declara y actualiza estados 
     
   });
@@ -42,7 +40,7 @@ const Form = () => {
       ...form,
       [event.target.name]: event.target.value,
     });
-    setErrors(validate({ ...form, [event.target.name]: event.target.value }));
+    setErrors(validate({ ...form, [event.target.name]: event.target.value })); //PREGUNTAR
   };
 
   const handleSelect = (event) => {
@@ -52,7 +50,10 @@ const Form = () => {
     });
   };
  
-  
+  const hasError = () => {
+    const errors = validate(form); // obtiene los errores de validación
+    return Object.keys(errors).length > 0; // devuelve true si hay errores, false si no los hay
+  };
   
 
   const handleSubmit = (event) => {
@@ -73,6 +74,9 @@ const Form = () => {
     });
     history.push("/home");
   };
+
+
+
 
   return (
     <div className={style.body}>
@@ -207,36 +211,30 @@ const Form = () => {
         {errors.weight && <p style={{ color: "red" }}>{errors.weight}</p>}
         </div>
         <br />
+        <label htmlFor="types" className={style.label}>
+          Types
+        </label>
         <select
           className={style.selectT}
           onChange={(selection) => handleSelect(selection)}
         >
-          {types.map((typ) => (
-            <option value={typ.id}>{typ.name}</option>
+          {types.map((type) => (
+            <option value={type.id}>{type.name}-{type.id}</option>
           ))}
         </select>
-        <div>{form.types.map((seleccionado) => seleccionado + " ")}</div>
+        <div>{form.types.map((seleccionado) => seleccionado + "-")}</div>
+
         <div style={{ marginLeft: '100px', textAlign: 'center' }}></div>
         {errors.types && <p style={{ color: "red" }}>{errors.types}</p>}
         
         <button
-          type="submit"
-          //  onClick={handleInputChange}
-          disabled={
-            form.name === "" ||
-            form.image === "" ||
-            form.life === "" ||
-            form.attack === "" ||
-            form.defense === "" ||
-            form.speed === "" ||
-            form.height === "" ||
-            form.weight === "" ||
-            form.types.length === 0
-          } // esta comprobando si alguna de las condiciones es falsa 
-          className={style.btn}
-        >
-          Create
-        </button>
+            className={style.btn}
+            type="submit"
+            disabled={hasError()} // deshabilita el botón si hay errores
+          >
+            CREATE ❤
+          </button>
+
       </form>
     </div>
   );
@@ -268,3 +266,25 @@ export default Form;
   //       });
   //     }
   //   };
+
+
+
+
+//   <button
+//   type="submit"
+ 
+//   disabled={
+//     form.name === "" ||
+//     form.image === "" ||
+//     form.life === "" ||
+//     form.attack === "" ||
+//     form.defense === "" ||
+//     form.speed === "" ||
+//     form.height === "" ||
+//     form.weight === "" ||
+//     form.types.length === 0
+//   } // esta comprobando si alguna de las condiciones es falsa 
+//   className={style.btn}
+// >
+//   Create
+// </button>

@@ -7,22 +7,6 @@ const { byId } = require ('../constrollers/getById')
 const { Pokemon, Type } = require ('../db')
 
 
-// router.get('/', async(req, res) =>{
-//     try {
-//       const { name } = req.query;
-//       let getAllPokemons;
-
-//       if(name) getAllPokemons= await byName(name)
-//       else getAllPokemons= await apiDb();
-
-//       // if(getAllPokemons.error) throw Error(getAllPokemons.error)
-//       return res.status(200).json(getAllPokemons);
-
-//     } catch (error) {
-//       res.status(404).send({error: error.message})
-//     }
-        
-//     })
 
 router.get('/getAll', async(req, res) =>{
   try {

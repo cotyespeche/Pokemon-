@@ -5,13 +5,13 @@ const validate = (inputs) => {
 
     const regexName = /^([^0-9]*)$/;
     const regexUrl = /^(ftp|http|https):\/\/[^ "]+$/
-    const regexNumber = /^\d*$/
+    // const regexNumber = /^\d*$/
 
 
 
-    // if (inputs.name !== "") errors.name = " Name field is required ";
-     if (inputs.name === "") errors.name = " Name field is required ";
-     else if ( inputs.name !== "" && !regexName.test(inputs.name)) errors.name = " Name can't contain numbers ";
+    if (!inputs.name) errors.name = " Name field is required ";
+    //  if (inputs.name === "") errors.name = " Name field is required ";
+     else if (!regexName.test(inputs.name)) errors.name = " Name can't contain numbers ";
 
      else if (!inputs.image ) errors.image = " Image field is required ";
      else if (!regexUrl.test(inputs.image)) errors.image = " Image must be a valid URL ";

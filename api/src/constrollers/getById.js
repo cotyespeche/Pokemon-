@@ -1,5 +1,5 @@
 const { apiDb } = require ('./getAll')
-const { Pokemon, type } = require ('../db')
+const { Pokemon, Type } = require ('../db')
 
 const byId = async(id) => {
         const data = await apiDb();
