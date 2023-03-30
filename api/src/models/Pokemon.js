@@ -5,12 +5,10 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', {
     id: {
-      type: DataTypes.UUID, //.INTEGER
-      defaultValue: DataTypes.UUIDV4, //BORRAR/COMENTAR
-      // type: DataTypes.INTEGER,
+      type: DataTypes.UUID, 
+      defaultValue: DataTypes.UUIDV4, 
       primaryKey: true,
       allowNull: false,
-      // autoIncrement: true, 
     },
     name: {
       type: DataTypes.STRING,
@@ -19,8 +17,6 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING,
       allowNull: false
-      // allowNull: false
-    //  ' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWh85ztw1jgLTMyk4Kv0iP8i2K1uq2xuI-x4pN9EI&s'
     },
     life: {
       type: DataTypes.INTEGER,

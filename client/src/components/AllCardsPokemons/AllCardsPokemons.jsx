@@ -1,12 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import CardPokemon from "../CardPokemon/CardPokemon";
 import gif from "../../img/Loading.gif";
 import style from "./AllCardsPokemons.module.css";
 
+
+
 const AllCardsPokemons = () => {
   const pokemons = useSelector((state) => state.copyPokemons);
+  const dispatch=useDispatch()
 
   const [loading, setLoading] = useState(true);
 
@@ -16,6 +19,7 @@ const AllCardsPokemons = () => {
     }, 3000); //  cantidad de tiempo que se muestre el GIF
     return () => clearTimeout(timer);
   }, []);
+
 
   const [currentPage, setCurrentPage] = useState(1); //guarda el número de la página actual que se está mostrando en la interfaz y lo inicializa en 1.
   const [itemsPerPage, setItemsPerPage] = useState(12);
@@ -59,6 +63,7 @@ const AllCardsPokemons = () => {
               name={element?.name}
               image={element?.image}
               types={element?.types}
+            
             
             />
           ))

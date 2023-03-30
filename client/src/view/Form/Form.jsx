@@ -42,7 +42,7 @@ const Form = () => {
       [event.target.name]: event.target.value,
     });
     equal(form.name);
-    setErrors(validate({ ...form, [event.target.name]: event.target.value })); //PREGUNTAR
+    setErrors(validate({ ...form, [event.target.name]: event.target.value })); 
   };
 
   const handleSelect = (event) => {
@@ -50,6 +50,9 @@ const Form = () => {
       ...form,
       types: [...form.types, event.target.value], // crea una copi y se agreg el nuevo valor selesccionado
     });
+    setErrors(validate(
+      { ...form, 
+        types: form.types }));
   };
  
   const hasError = () => {
@@ -87,6 +90,18 @@ const Form = () => {
       });
     }
   };
+
+  const handleDelete = (element) => {
+    setForm({
+      ...form,
+      types: form.types.filter(
+        (types) => types !== element
+      ),
+    });
+  };
+
+
+
 
 
 
@@ -223,22 +238,39 @@ const Form = () => {
         {errors.weight && <p style={{ color: "red" }}>{errors.weight}</p>}
         </div>
         <br />
+
+
         <label htmlFor="types" className={style.label}>
           Types
         </label>
-        <select
-          className={style.selectT}
-          onChange={(selection) => handleSelect(selection)}
-        >
-          {types.map((type) => (
-            <option value={type.id}>{type.name}-{type.id}</option>
-          ))}
-        </select>
-        <div>{form.types.map((seleccionado) => seleccionado + "-")}</div>
 
-        <div style={{ marginLeft: '100px', textAlign: 'center' }}></div>
-        {errors.types && <p style={{ color: "red" }}>{errors.types}</p>}
-        
+        <select
+            name="types"
+            className={style.selectT}
+            value={" "}
+            onChange={(selection) => handleSelect(selection)}
+          >
+            {types.map((type) => (
+              <option value={type.id}>
+                {type.name} - {type.id}
+              </option>
+            ))}
+          </select>
+          {errors.types && (
+            <p style={{ color: "red" }}>{errors.types}</p>
+          )}
+
+          <div className={style.divT}>
+              {types
+              .filter((type) => form.types.includes(`${type.id}`))
+              .map((t) => (
+                <p key={t.id}>
+                  <p>{t.name}</p>
+                <button className={style.X}onClick={()=> handleDelete(`${t.id}`)}>❎</button>
+                </p>
+              ))}
+              </div>
+       
         <button
             className={style.btn}
             type="submit"
@@ -300,3 +332,21 @@ export default Form;
 // >
 //   Create
 // </button>
+
+
+
+
+
+ {/* <select
+          className={style.selectT}
+          onChange={(selection) => handleSelect(selection)}
+        >
+          {types.map((type) => (
+            <option value={type.id}>{type.name}-{type.id}</option>
+          ))}
+        </select>
+        <div>{form.types.map((seleccionado) => seleccionado + "-")}</div>
+
+        <div style={{ marginLeft: '100px', textAlign: 'center' }}></div>
+        {errors.types && <p style={{ color: "red" }}>{errors.types}</p>}
+         */}

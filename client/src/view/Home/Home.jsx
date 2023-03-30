@@ -7,7 +7,7 @@ import style from "./Home.module.css";
 
 
 const Home = () => {
-  // const pokemon = useSelector((state) => state.copyPokemons);
+ 
   const dispatch = useDispatch();
 
   useEffect(() => {

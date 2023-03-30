@@ -11,7 +11,7 @@ import {
   FILTER_BY_SOURCE,
   POST_POKEMON,
   DELETE_POKEMON,
-  ORDER_BY_DEFENSE,
+  
  
 } from "./actionType";
 
@@ -126,14 +126,18 @@ export const postPokemon= (form) => {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-// export const deletePokemon= (id) => async(dispatch)=>{
-//   try{
-//     await fetch(`http://localhost:3001/pokemons/delete/${id}`)
-//     dispatch({type: DELETE_POKEMON, payload: id})
-//   }catch(error){
-//     console.error(error);
-//   }
-// };
+
+
+   
+export const deletePokemon = (id)=> {
+  return async function (dispatch){
+     const response = axios.delete(`http://localhost:3001/pokemons/${id}`)
+      dispatch({type: DELETE_POKEMON, payload: response.data})
+ 
+  }
+}
+    
+  
 
 
 

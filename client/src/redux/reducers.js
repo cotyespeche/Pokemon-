@@ -11,7 +11,7 @@ import {
   FILTER_BY_SOURCE,
   POST_POKEMON,
   DELETE_POKEMON,
-  ORDER_BY_DEFENSE
+ 
 } from "./actionType";
 
 const initialState = {
@@ -128,12 +128,11 @@ export default function rootReducer(state = initialState, action) {
                 
             };
 
-// case DELETE_POKEMON:
- //     const updatedPokemon = state.copyPokemons.filter(
- //       (poke) => poke.id !== action.payload
-  //     );
- //     return {...state, 
- //       copyPokemons:updatedPokemon}
+  case DELETE_POKEMON:
+      const deleteId= state.copyPokemons.filter((poke) => poke.id !== action.payload
+        );
+      return {...state, 
+        copyPokemons:deleteId}
               
             
   
