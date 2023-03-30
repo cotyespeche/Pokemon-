@@ -41,7 +41,9 @@ const Form = () => {
       ...form,
       [event.target.name]: event.target.value,
     });
+
     equal(form.name);
+    
     setErrors(validate({ ...form, [event.target.name]: event.target.value })); 
   };
 
@@ -109,6 +111,7 @@ const Form = () => {
     <div className={style.body}>
       <div className={style.formContainer}></div>
       <br></br>
+
       <h1 className={style.inputTitulo}>FORM TO CREATE POKEMON</h1>
 
       <form onSubmit={(event) => handleSubmit(event)}>
@@ -156,7 +159,7 @@ const Form = () => {
         </label>
         <input
           name="life"
-          type="number"
+          type="text"
           onChange={handleInputChange}
           value={form.life}
           className={style.inputName}
@@ -169,7 +172,7 @@ const Form = () => {
         <label htmlFor="attack" className={style.label}>Attack</label>
         <input
           name="attack"
-          type="number"
+          type="text"
           onChange={handleInputChange}
           value={form.attack}
           className={style.inputName}
@@ -184,7 +187,7 @@ const Form = () => {
         </label>
         <input
           name="defense"
-          type="number"
+          type="text"
           onChange={handleInputChange}
           value={form.defense}
           className={style.inputName}
@@ -199,7 +202,7 @@ const Form = () => {
         </label>
         <input
           name="speed"
-          type="number"
+          type="text"
           onChange={handleInputChange}
           value={form.speed}
           className={style.inputName}
@@ -214,7 +217,7 @@ const Form = () => {
         </label>
         <input
           name="height"
-          type="number"
+          type="text"
           onChange={handleInputChange}
           value={form.height}
           className={style.inputName}
@@ -229,7 +232,7 @@ const Form = () => {
         </label>
         <input
           name="weight"
-          type="number"
+          type="text"
           onChange={handleInputChange}
           value={form.weight}
           className={style.inputName}
@@ -247,7 +250,7 @@ const Form = () => {
         <select
             name="types"
             className={style.selectT}
-            value={" "}
+            // value={" "}
             onChange={(selection) => handleSelect(selection)}
           >
             {types.map((type) => (

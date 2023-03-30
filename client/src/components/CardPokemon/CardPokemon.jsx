@@ -4,7 +4,7 @@ import style from './CardPokemon.module.css'
 
 
 
-const CardPokemon = ({ id, name,image, types, handleDelete }) => {
+const CardPokemon = ({ id, name,image, types }) => {
     
 
     return (

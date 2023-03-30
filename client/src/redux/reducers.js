@@ -10,8 +10,7 @@ import {
   FILTER_BY_TYPE,
   FILTER_BY_SOURCE,
   POST_POKEMON,
-  DELETE_POKEMON,
- 
+
 } from "./actionType";
 
 const initialState = {
@@ -22,15 +21,13 @@ const initialState = {
 };
 
 export default function rootReducer(state = initialState, action) {
-
   switch (action.type) {
-
     case GET_ALL_POKEMONS:
       console.log(action.payload);
       return {
         ...state,
         pokemons: action.payload,
-        copyPokemons: action.payload, 
+        copyPokemons: action.payload,
       };
 
     case GET_POKEMON_DETAIL:
@@ -45,15 +42,14 @@ export default function rootReducer(state = initialState, action) {
         pokemonDetail: {},
       };
 
-   
     case GET_POKEMON_BY_NAME:
-
-      const foundPokemon =state.pokemons.filter((pokemon) => pokemon.name === action.payload.toLowerCase())
+      const foundPokemon = state.pokemons.filter(
+        (pokemon) => pokemon.name === action.payload.toLowerCase()
+      );
       return {
         ...state,
-        copyPokemons: foundPokemon
+        copyPokemons: foundPokemon,
       };
-
 
     case DELETE_STATE:
       return {
@@ -65,11 +61,19 @@ export default function rootReducer(state = initialState, action) {
       // console.log('eeeeeeeeeee', state.copyPokemons)
       return {
         ...state,
-        copyPokemons: (action.payload === 'A-Z')
-                    ? [...state.copyPokemons.sort((a, b) => a.name.localeCompare(b.name))] // acs
-                    : [...state.copyPokemons.sort((a, b) => b.name.localeCompare(a.name))]
-                  }
-         
+        copyPokemons:
+          action.payload === "A-Z"
+            ? [
+                ...state.copyPokemons.sort((a, b) =>
+                  a.name.localeCompare(b.name)
+                ),
+              ] // acs
+            : [
+                ...state.copyPokemons.sort((a, b) =>
+                  b.name.localeCompare(a.name)
+                ),
+              ],
+      };
 
     case ORDER_BY_ATTACK:
       return {
@@ -84,18 +88,17 @@ export default function rootReducer(state = initialState, action) {
             if (a.attack > b.attack) return -1;
             return 0;
           }
-        })
-      }
+        }),
+      };
 
-    
     case GET_ALL_TYPES:
       return {
         ...state,
         types: action.payload,
       };
 
-    case FILTER_BY_TYPE: 
-      let filtered = state.pokemons
+    case FILTER_BY_TYPE:
+      let filtered = state.pokemons;
       if (action.payload !== "All") {
         filtered = state.pokemons.filter((poke) =>
           poke.types?.includes(action.payload)
@@ -106,37 +109,23 @@ export default function rootReducer(state = initialState, action) {
         copyPokemons: filtered,
       };
 
-
     case FILTER_BY_SOURCE:
       let allPoke = state.pokemons;
       if (action.payload !== "allPoke") {
-          allPoke = action.payload === "Api"
-          ? allPoke.filter((poke) => typeof poke.id === "number")
-          : allPoke.filter((poke) => typeof poke.id !== "number");
+        allPoke =
+          action.payload === "Api"
+            ? allPoke.filter((poke) => typeof poke.id === "number")
+            : allPoke.filter((poke) => typeof poke.id !== "number");
       }
       return {
-          ...state,
-          copyPokemons: [...allPoke],
+        ...state,
+        copyPokemons: [...allPoke],
       };
 
-
-
-
-      case POST_POKEMON:
-             return {
-                ...state,
-                
-            };
-
-  case DELETE_POKEMON:
-      const deleteId= state.copyPokemons.filter((poke) => poke.id !== action.payload
-        );
-      return {...state, 
-        copyPokemons:deleteId}
-              
-            
-  
- 
+    case POST_POKEMON:
+      return {
+        ...state,
+      };
 
     default:
       return {
@@ -150,16 +139,10 @@ export default function rootReducer(state = initialState, action) {
 
 
 
-// case ORDER_BY_DEFENSE: 
-//   const sortedCopyPokemons = [...state.copyPokemons].sort((a,b) => {
-//     return action.payload === "+defense" ? 
-//       a.defense.localeCompare(b.defense) :
-//       b.defense.localeCompare(a.defense);
-//   });
-//   return {
-//     ...state,
-//     copyPokemons: sortedCopyPokemons
-//   };
+
+
+
+
 
 
 
