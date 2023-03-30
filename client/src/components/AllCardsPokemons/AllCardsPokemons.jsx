@@ -55,6 +55,7 @@ const AllCardsPokemons = () => {
       
 
       <div className={style.AllCards}>
+
         {pokemons.length > 0 ? (
           currentItems.map((element) => (
             <CardPokemon
@@ -63,8 +64,6 @@ const AllCardsPokemons = () => {
               name={element?.name}
               image={element?.image}
               types={element?.types}
-            
-            
             />
           ))
         ) : (
@@ -76,6 +75,7 @@ const AllCardsPokemons = () => {
         )}
       </div>
 
+          {/* //////////PREV /////// */}
       <div className={style.pagination}>
         <button
           className={style.prevButton}
@@ -88,7 +88,8 @@ const AllCardsPokemons = () => {
         <ul className={`${style.unorganizedList} ${style.paginationContainer}`}>
           {renderPageNumbers}
         </ul>
-
+        
+             {/* ///////////// NEXT ////////////// */}
         <button
           className={style.nextButton}
           onClick={() => setCurrentPage(currentPage + 1)}

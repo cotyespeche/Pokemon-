@@ -37,8 +37,8 @@ export default function SearchBar() {
       <input
         className={style.input}
         type="text"
-        placeholder="Search..."
-        value={name} // es mi estado
+        placeholder="Search name..."
+        value={name}
         onChange={(e) => handleInputChange(e)} // cada vez que se escribe una letra cambia ...
         
       />
