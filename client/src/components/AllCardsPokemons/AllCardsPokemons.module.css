@@ -74,3 +74,23 @@
   display: inline-block;
   justify-content: center;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination div {
+  display: flex;
+  align-items: center;
+  margin: 0 10px; /* Ajusta el valor según el espacio que deseas entre los botones */
+}
+
+.pagination button {
+  font-size: 16px; /* Ajusta el tamaño de fuente según tu necesidad */
+}
+
+.nextButton{
+  margin: 0 40px;
+}

@@ -18,12 +18,48 @@ const Home = () => {
     if (!pokemons || pokemons.length === 0) dispatch(getAllPokemons())
   }, [pokemons, dispatch])
 
+
   return (
     <div className={style.home}>
       <AllCardsPokemons />
+      <div className={style.footer}>
+        <h2 className={style.yellow}>
+          Developed by
+          <a
+            className={style.letras}
+            href="https://www.linkedin.com/in/maria-constanza-espeche-b58573255/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            &nbsp;Constanza Espeche&nbsp;
+          </a>
+          with <span className={style.red}>❤</span>
+        </h2>
+      </div>
     </div>
   );
-};
+  }  
+//   return (
+//     <div className={style.home}>
+//       <AllCardsPokemons />
+
+//       <h2 className={style.yellow}>
+//         Developed by
+//         <a
+//           className={style.letras}
+//           href="https://www.linkedin.com/in/maria-constanza-espeche-b58573255/"
+//           target="_blank"
+//           rel="noreferrer"
+//         >
+//           &nbsp;Constanza Espeche&nbsp;
+//         </a>
+//         with <span className={style.red}>❤</span>
+//       </h2>
+//     </div>
+    
+//   );
+// };
+
 
 export default Home;
 

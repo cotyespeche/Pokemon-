@@ -73,10 +73,11 @@ const AllCardsPokemons = () => {
             {/* {!pokemons.length && <h3>No se hallaron resultados.</h3>} */}
           </div>
         )}
+
       </div>
 
           {/* //////////PREV /////// */}
-      <div className={style.pagination}>
+          <div className={style.pagination}>
         <button
           className={style.prevButton}
           onClick={() => setCurrentPage(currentPage - 1)}
@@ -88,6 +89,8 @@ const AllCardsPokemons = () => {
         <ul className={`${style.unorganizedList} ${style.paginationContainer}`}>
           {renderPageNumbers}
         </ul>
+
+       
         
              {/* ///////////// NEXT ////////////// */}
         <button

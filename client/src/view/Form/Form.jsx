@@ -111,16 +111,18 @@ const Form = () => {
     <div className={style.body}>
       <div className={style.formContainer}></div>
       <br></br>
+      <button className={style.btn1} onClick={handleHistory}>
+          Back To Home
+        </button>
+        <br />
 
       <h1 className={style.inputTitulo}>FORM TO CREATE POKEMON</h1>
 
       <form onSubmit={(event) => handleSubmit(event)}>
 
-        <button className={style.btn1} onClick={handleHistory}>
-          Back To Home
-        </button>
-        <br />
+      
 
+        <div className={style.formmm}>
         <label htmlFor="name" className={style.label}>
           Name
         </label>
@@ -269,20 +271,24 @@ const Form = () => {
               .map((t) => (
                 <p key={t.id}>
                   <p>{t.name}</p>
+                  <div className={style.buttonX}>
                 <button className={style.X}onClick={()=> handleDelete(`${t.id}`)}>❎</button>
+                </div>
                 </p>
               ))}
+               </div>
               </div>
-       
-        <button
+              <button
             className={style.btn}
             type="submit"
             disabled={hasError()} // deshabilita el botón si hay errores
           >
-            CREATE ❤
+            CREATE 
           </button>
 
+          
       </form>
+      
     </div>
   );
 };

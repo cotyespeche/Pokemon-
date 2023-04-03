@@ -5,7 +5,9 @@ import style from './CardPokemon.module.css'
 
 
 const CardPokemon = ({ id, name,image, types }) => {
-    
+    if (!name || !image || !types) {
+        return <div className={style.card}>Sorry, we couldn't find that Pokémon.</div>;
+    }
 
     return (
        

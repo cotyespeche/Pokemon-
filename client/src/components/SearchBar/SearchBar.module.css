@@ -48,11 +48,11 @@ background: rgba(252, 248, 248, 0.314);
 .button:hover {
   font-size: 17px;
   border-radius: 50%;
-  background-color:rgba(213, 99, 0, 0.452);
+  background-color:rgba(218, 213, 209, 0.452);
   /* cursor: pointer; */
 }
 .btn:hover {
-  background: rgba(213, 99, 0, 0.452);
+  background: rgba(218, 213, 209, 0.452);
 }
   /* font-size: 20px;
   cursor: pointer;

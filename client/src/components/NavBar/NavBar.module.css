@@ -35,7 +35,7 @@
 
     .b2{
       /* color: #3c5608; */
-      color:  #daded2;
+      color:  #080707;
         letter-spacing: 2px;
         font-size: 15px;
         text-decoration: none;
@@ -50,14 +50,23 @@
       display: flex;
       position: absolute;
       margin-left: 60em;
+      
        }
        
        
     .b2:hover {
         cursor: pointer;
-        background: rgba(213, 99, 0, 0.452) ;
+        background: rgba(218, 213, 209, 0.452) ;
         }    
+
+
+        .logo{
+          height: 85px; /* Tamaño que deseas para el logo */
+          width: auto;
+         
+        }
     
+      
 /*    
    @font-face {
        font-family: "fontnew9";

@@ -9,3 +9,35 @@
     background-attachment: fixed; 
     height: 1200px
 }
+
+.cardsGrid {
+    background-image: url("https://cdn.shopify.com/s/files/1/0277/2615/1768/products/0056625_yoop-grey-dog-wallpaper_800x1026_crop_center@2x.jpg?v=1648232607");
+    padding: 2em;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: 1200px; */
+    height: 2000px
+  
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #a29d9d;
+    text-align: center;
+    padding: 1px; /* o padding: 5px; */
+    font-size: 9px
+  }
+
+ 
+  
+  
+  
+  
+  
+  
+  
+  

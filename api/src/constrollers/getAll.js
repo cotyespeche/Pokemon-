@@ -10,7 +10,7 @@ const { Pokemon, Type } = require ('../db')
       const poke = []; 
       // { name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }, de cada iteracion me trae esto
       let pokeApi = "https://pokeapi.co/api/v2/pokemon"
-      while (poke.length < 60) {
+      while (poke.length < 100) {
           const { data } = await axios.get(pokeApi);
           poke.push(...data.results); // el ... mete el objeto dentro del array para que no sea un array de array
           pokeApi = data.next; 
