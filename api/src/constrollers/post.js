@@ -1,7 +1,7 @@
 const { Pokemon } = require("../db");
 
 const postPokemon = async (pokemon) => {
-  const { name, image, life, attack, defense, speed, height, weight, comments, types } =
+  const { name, image, life, attack, defense, speed, height, weight, types } =
     pokemon;
 
   if (
@@ -13,7 +13,6 @@ const postPokemon = async (pokemon) => {
     !types ||
     !speed ||
     !height ||
-    !comments||
     !weight
   )
     throw new Error("Missing information");
@@ -34,7 +33,7 @@ const postPokemon = async (pokemon) => {
       speed,
       height,
       weight,
-      comments,
+      
     }; // creo un objeto con estas propiedades que va a ser usado para crear la instancia
 
     let newPokemon = await Pokemon.create(pokemonToPost); // Creo la instancia de Pokemon

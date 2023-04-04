@@ -160,7 +160,7 @@ cursor: pointer;
 }
 
 
-.buttonX{
+/* .buttonX{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -173,7 +173,7 @@ p {
 
 .X {
   margin-left: 10px; /* Ajusta el valor según el espacio que deseas entre el nombre y el botón */
-}
+/* } */ 
 
 
 

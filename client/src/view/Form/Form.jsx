@@ -133,7 +133,7 @@ const Form = () => {
           value={form.name}
           className={style.inputName}
         ></input>
-        <div style={{ marginLeft: '100px', textAlign: 'center' }}>
+        <div style={{ marginLeft: '150px', textAlign: 'center' }}>
           {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
         </div>
 
@@ -151,7 +151,7 @@ const Form = () => {
         //   placeholder="URL de imagen"
           className={style.inputName}
         ></input>
-          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
+          <div style={{ marginLeft: '150px', textAlign: 'center' }}>
         {errors.image && <p style={{ color: "red" }}>{errors.image}</p>}
         </div>
         <br />
@@ -166,7 +166,7 @@ const Form = () => {
           value={form.life}
           className={style.inputName}
         ></input>
-          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
+          <div style={{ marginLeft: '150px', textAlign: 'center' }}>
         {errors.life && <p style={{ color: "red" }}>{errors.life}</p>}
         </div>
         <br />
@@ -179,7 +179,7 @@ const Form = () => {
           value={form.attack}
           className={style.inputName}
         ></input>
-          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
+          <div style={{ marginLeft: '150px', textAlign: 'center' }}>
         {errors.attack && <p style={{ color: "red" }}>{errors.attack}</p>}
         </div>
         <br />
@@ -194,7 +194,7 @@ const Form = () => {
           value={form.defense}
           className={style.inputName}
         ></input>
-          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
+          <div style={{ marginLeft: '150px', textAlign: 'center' }}>
         {errors.defense && <p style={{ color: "red" }}>{errors.defense}</p>}
         </div>
         <br />
@@ -209,7 +209,7 @@ const Form = () => {
           value={form.speed}
           className={style.inputName}
         ></input>
-          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
+          <div style={{ marginLeft: '150px', textAlign: 'center' }}>
         {errors.speed && <p style={{ color: "red" }}>{errors.speed}</p>}
         </div>
         <br />
@@ -224,7 +224,7 @@ const Form = () => {
           value={form.height}
           className={style.inputName}
         ></input>
-          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
+          <div style={{ marginLeft: '150px', textAlign: 'center' }}>
         {errors.height && <p style={{ color: "red" }}>{errors.height}</p>}
         </div>
         <br />
@@ -239,7 +239,7 @@ const Form = () => {
           value={form.weight}
           className={style.inputName}
         ></input>
-          <div style={{ marginLeft: '100px', textAlign: 'center' }}>
+          <div style={{ marginLeft: '150px', textAlign: 'center' }}>
         {errors.weight && <p style={{ color: "red" }}>{errors.weight}</p>}
         </div>
         <br />
@@ -261,8 +261,9 @@ const Form = () => {
               </option>
             ))}
           </select>
+          
           {errors.types && (
-            <p style={{ color: "red" }}>{errors.types}</p>
+            <p style={{ color: "red", marginLeft: '130px', textAlign: 'center' }}>{errors.types}</p>
           )}
 
           <div className={style.divT}>
